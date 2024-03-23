@@ -16,7 +16,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 st.title('MindMatch: Compare Your Thinking Patterns to ChatGPT')
-st.sidebar.image('logo.jpg', width=300)
+st.sidebar.image(os.path.join('.', 'logo.jpg'), width=300)
 # Add a multiselect widget to allow the user to select multiple datasets
 # The only possible values are 'CIFAR-10' and 'MNIST'
 
@@ -34,7 +34,7 @@ It's an interesting opportunity to not only challenge the AI but also to challen
 
 Done as part of the 2024 relAI Safety hackathon!"""
 )
-st.sidebar.image('relai.png', width=200)
+st.sidebar.image(os.path.join('.', 'relai.png'), width=200)
 
 # TODO: Replace these with real questions froma an LLM Benchmark
 questions_answers = [
