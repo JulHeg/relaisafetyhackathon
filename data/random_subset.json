@@ -1,0 +1,142 @@
+[
+    {
+        "context": "Jordan reproduced his idea in this book so that he could keep track of it forever.",
+        "question": "Why did Jordan do this?",
+        "answerA": "remember things",
+        "answerB": "have an idea",
+        "answerC": "write the idea down"
+    },
+    {
+        "context": "Austin met the client's needs and they praised him highly.",
+        "question": "How would Others feel as a result?",
+        "answerA": "happy",
+        "answerB": "incompetent",
+        "answerC": "very good at work"
+    },
+    {
+        "context": "After the ball game Cameron climbed the fence quickly to get home.",
+        "question": "How would Cameron feel afterwards?",
+        "answerA": "liked to get home quickly",
+        "answerB": "liked to climb fences",
+        "answerC": "hungry"
+    },
+    {
+        "context": "Due to fatigue for staying up all night, Sasha made a mess of their tests.",
+        "question": "How would Sasha feel afterwards?",
+        "answerA": "very upset",
+        "answerB": "they disappoint parents",
+        "answerC": "they upset parents\n\n\\]'"
+    },
+    {
+        "context": "Sasha took Sydney's family home because she was ordered by her boss to do so.",
+        "question": "Why did Sasha do this?",
+        "answerA": "get a promotion",
+        "answerB": "be demoted",
+        "answerC": "lose her job"
+    },
+    {
+        "context": "Sydney got an urgent call about a crime in the middle of the night.",
+        "question": "How would you describe Sydney?",
+        "answerA": "worried",
+        "answerB": "scared",
+        "answerC": "a good detective"
+    },
+    {
+        "context": "Alex saw a stranger drop $20 on the ground. He could have given it back, but Alex took the money.",
+        "question": "How would you describe Alex?",
+        "answerA": "empathetic",
+        "answerB": "selfish",
+        "answerC": "worthless"
+    },
+    {
+        "context": "Sasha knew based on thier experieences in the past.",
+        "question": "What does Sasha need to do before this?",
+        "answerA": "leave town",
+        "answerB": "learn",
+        "answerC": "take a nap"
+    },
+    {
+        "context": "Addison gave candy to Skylar's son and he enjoyed it a lot.",
+        "question": "What will Skylar want to do next?",
+        "answerA": "become angry",
+        "answerB": "give Skylar's son more candy",
+        "answerC": "be grateful"
+    },
+    {
+        "context": "Quinn was located in the Sydney area. She often joked to her friend Sydney about it.",
+        "question": "How would Sydney feel as a result?",
+        "answerA": "bored by Quinn",
+        "answerB": "lighthearted and cheesy",
+        "answerC": "humorous and fun-loving"
+    },
+    {
+        "context": "Kendall was too quick for Sydney and prevented their attempt at scoring a goal.",
+        "question": "What will happen to Sydney?",
+        "answerA": "be praised by her team",
+        "answerB": "get frustrated",
+        "answerC": "congratulated by her coach for doing a good job"
+    },
+    {
+        "context": "Jesse told Sasha that they would go to the party together and have a good time there.",
+        "question": "How would Jesse feel afterwards?",
+        "answerA": "horrible",
+        "answerB": "ready",
+        "answerC": "tired"
+    },
+    {
+        "context": "Quinn was rich and had everything. Quinn gave Bailey the best of everything.",
+        "question": "Why did Quinn do this?",
+        "answerA": "make sure Baliey was upset all the time",
+        "answerB": "annoy Baliey alot",
+        "answerC": "make sure Baliey had a better childhood"
+    },
+    {
+        "context": "Kendall titled Jan's head then went in for a kiss.",
+        "question": "Why did Kendall do this?",
+        "answerA": "jittery",
+        "answerB": "excited",
+        "answerC": "make out with Jan"
+    },
+    {
+        "context": "Bailey took dog toys to the dog park so the dog could play.",
+        "question": "How would Others feel as a result?",
+        "answerA": "Sad",
+        "answerB": "bored",
+        "answerC": "Very happy"
+    },
+    {
+        "context": "Carson \"went hard or go home\" because you needed to being risky or just not try.",
+        "question": "How would Carson feel afterwards?",
+        "answerA": "lazy",
+        "answerB": "lucky",
+        "answerC": "someone who puts in his all"
+    },
+    {
+        "context": "Carson assisted the worker in determining the length of the plywood plank.",
+        "question": "What will Carson want to do next?",
+        "answerA": "fire the worker",
+        "answerB": "quit his job",
+        "answerC": "build a house"
+    },
+    {
+        "context": "After going around a corner too fast, Riley hit a pole with the golf cart.",
+        "question": "What will Others want to do next?",
+        "answerA": "would get out and check for any damage to the golf cart",
+        "answerB": "safe",
+        "answerC": "would have any damage done to the golf cart fixed"
+    },
+    {
+        "context": "Kendall and Tracy were visiting a national landmark. Kendall took a picture of Tracy.",
+        "question": "What does Kendall need to do before this?",
+        "answerA": "needed to get a photography license",
+        "answerB": "needed to photo-bomb Tracy",
+        "answerC": "needed to ask Tracy to pose"
+    },
+    {
+        "context": "Austin provided for Bailey's children because Bailey had recently died and the children were orphaned.",
+        "question": "What does Austin need to do before this?",
+        "answerA": "have some resources",
+        "answerB": "honor the memory of Bailey",
+        "answerC": "lose some money"
+    }
+]
