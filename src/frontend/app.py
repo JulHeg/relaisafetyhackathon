@@ -5,6 +5,16 @@ import json
 import random
     
 st.set_page_config(page_title='MindMatch', page_icon='🧪', layout="centered", initial_sidebar_state="expanded", menu_items=None)
+st.markdown(
+    """
+    <style>
+        section[data-testid="stSidebar"] {
+            width: 700px !important; # Set the width to your desired value
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 st.title('MindMatch: Compare Your Thinking Patterns to ChatGPT')
 st.sidebar.image('logo.jpg', width=300)
 # Add a multiselect widget to allow the user to select multiple datasets
@@ -81,7 +91,7 @@ questions_answers = [
      }
 ]
 
-random_subset_path = os.path.join('..', '..', 'data', 'random_subset.json')
+random_subset_path = os.path.join('..', '..', 'data', 'raw_data', 'random_subset.json')
 with open(random_subset_path) as f:
     questions_subset = json.load(f)
 questions_answers = []
@@ -142,7 +152,7 @@ for i, qa in enumerate(questions_answers):
             with st.expander(f"{model} answer: {given_answer} (Confidence: {confidence*100}%)", expanded=False):
                 st.write(model_answer['explanation'])
         # Make a 'Next' button to go to the next question
-    next = st.button('Next', key=f'next_{i}')
+    next = st.button('Next', key=f'next_{i}')   
     if next:
         st.session_state.answers_given.append(option)
         # Update to remove the old question
