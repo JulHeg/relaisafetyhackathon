@@ -92,15 +92,20 @@ questions_answers = [
 ]
 
 random_subset_path = os.path.join('data', 'raw_data', 'random_subset.json')
+random_subset_label_path = os.path.join('data', 'raw_data', 'random_subset_labels_rephrased.lst')
 with open(random_subset_path) as f:
     questions_subset = json.load(f)
+with open(random_subset_label_path) as f:
+    questions_labels = f.readlines()
 questions_answers = []
 
-for question in questions_subset[:3]:
+
+for i in range(3):
+    question = questions_subset[i]
     qa = {
         'question': question['context'] + ' ' + question['question'],
         'answers': [question['answerA'], question['answerB'], question['answerC']],
-        'correct_answer': random.randint(0, 2),
+        'correct_answer': int(questions_labels[i].strip()) - 1,
         'llm_answers': {
             'GPT-3': {
                 'answer': 1,
@@ -115,7 +120,7 @@ for question in questions_subset[:3]:
         }
     }
     questions_answers.append(qa)
-
+print(questions_answers)
 question_count = len(questions_answers)
 
 # Keep track of the answered questions in the session state
