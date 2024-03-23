@@ -105,18 +105,14 @@ for question in questions_subset[:3]:
 
 question_count = len(questions_answers)
 
-correct_answers = 0
-incorrect_answers = 0
 # Keep track of the answered questions in the session state
 
-if 'answered_questions' not in st.session_state:
-    st.session_state.answered_questions = [False] * len(questions_answers)
+if 'answers_given' not in st.session_state:
+    st.session_state.answers_given = []
 
 for i, qa in enumerate(questions_answers):
     # If one of the previous questions has not been answered, continue to the next question
-    if i > 0 and not st.session_state.answered_questions[i-1]:
-        break
-    if st.session_state.answered_questions[i]:
+    if i != len(st.session_state.answers_given):
         continue
         
     st.subheader(f'Question {i+1}/{question_count}: ' + qa['question'])
@@ -130,10 +126,6 @@ for i, qa in enumerate(questions_answers):
                           #disabled=st.session_state.answered_questions[i]
                           )
     correct_answer = qa['answers'][qa['correct_answer']]
-    if option == correct_answer:
-        correct_answers += 1
-    else:
-        incorrect_answers += 1
     if submitted:
         # Disable the button after submission
         if option == correct_answer:
@@ -150,17 +142,22 @@ for i, qa in enumerate(questions_answers):
     next = st.button('Next', key=f'next_{i}')
     print(next)
     if next:
-        print('test')
-        st.session_state.answered_questions[i] = True
+        st.session_state.answers_given.append(option)
         # Update to remove the old question
         st.experimental_rerun()
             
                 
 # Once all questions are answered, show the final score
-if all(st.session_state.answered_questions):
+if len(st.session_state.answers_given) == len(questions_answers):
+    
+    correct_answers = 0
+    for i, qa in enumerate(questions_answers):
+        if st.session_state.answers_given[i] == qa['answers'][qa['correct_answer']]:
+            correct_answers += 1
     st.write("Quiz completed!")
     st.write(f"Final score: {correct_answers}/{len(questions_answers)}")
 
+    
     # Calculate the accuracy of all the LLMs
     llms_correct_answers = {}
     for qa in questions_answers:
@@ -174,13 +171,34 @@ if all(st.session_state.answered_questions):
     user_accuracy = correct_answers / len(questions_answers)
     llms_accuracy = {model: correct_answers / len(questions_answers) for model, correct_answers in llms_correct_answers.items()}
     llms_accuracy['User'] = user_accuracy
+    plt.style.use('seaborn-darkgrid')
     fig, ax = plt.subplots()
-    ax.bar(llms_accuracy.keys(), llms_accuracy.values())
-    ax.set_ylabel('Accuracy')
-    ax.set_title('Compare your accuracy to the LLMs')
-    # y limits
+
+    # Create the bar chart
+    bars = ax.bar(llms_accuracy.keys(), llms_accuracy.values(), color='skyblue')
+
+    # Set the title and labels
+    ax.set_ylabel('Accuracy', fontsize=12)
+    ax.set_title('Compare Your Accuracy to the LLMs', fontsize=14, fontweight='bold')
+
+    # Improve readability of x-axis labels
+    plt.xticks(rotation=45, ha='right')
+
+    # Set the y-axis limits
     ax.set_ylim(0, 1)
 
-    
+    # Add value labels on top of each bar
+    for bar in bars:
+        height = bar.get_height()
+        ax.annotate(f'{height:.2f}',
+                    xy=(bar.get_x() + bar.get_width() / 2, height),
+                    xytext=(0, 3),  # 3 points vertical offset
+                    textcoords="offset points",
+                    ha='center', va='bottom')
 
+    # Streamline the presentation
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+
+    # Display the plot
     st.pyplot(fig)
