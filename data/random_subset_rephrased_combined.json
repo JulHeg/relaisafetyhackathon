@@ -33,17 +33,18 @@
         "question": "How would Sasha feel afterwards?",
         "answerA": "very upset",
         "answerB": "they disappoint parents",
-        "answerC": "they upset parents\n\n\\]'"
+        "answerC": "they upset parents"
     },
-    {
-        "context": "Sasha took Sydney's family home because she was ordered by her boss to do so.",
-        "context_2": "Sasha drove Sydney's family home as per her boss's instructions.",
-        "context_3": "Sasha was instructed by her boss to take Sydney's family home.",
-        "question": "Why did Sasha do this?",
-        "answerA": "get a promotion",
-        "answerB": "be demoted",
-        "answerC": "lose her job"
-    },
+
+    {"context": "Quinn wanted to help me clean my room up because it was so messy.",
+    "context_2": "My room was messy so Quinn wanted to help me clean my room up.",
+    "context_3": "My room was not clean so Quinn decided to help me clean up.",
+     "question": "What will Quinn want to do next?",
+    "answerA": "Eat messy snacks",
+    "answerB": "help out a friend",
+    "answerC": "Pick up the dirty clothes"}
+
+
     {
         "context": "Sydney got an urgent call about a crime in the middle of the night.",
         "context_2": "An urgent call about a crime woke Sydney in the middle of the night.",

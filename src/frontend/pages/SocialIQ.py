@@ -3,39 +3,37 @@ import matplotlib.pyplot as plt
 import os
 import json
 import random
+# from streamlit_extras.app_logo import add_logo
     
-st.set_page_config(page_title='MindMatch', page_icon='🧪', layout="centered", initial_sidebar_state="expanded", menu_items=None)
-st.markdown(
-    """
-    <style>
-        section[data-testid="stSidebar"] {
-            width: 700px !important; # Set the width to your desired value
-        }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-st.title('MindMatch: Compare Your Thinking Patterns to ChatGPT')
+st.set_page_config(page_title='MindMatch', page_icon='🧪', layout="centered", menu_items=None, initial_sidebar_state='collapsed')
+#add_logo(os.path.join('src', 'frontend', 'logo.jpg'))
+
 st.sidebar.image(os.path.join('src', 'frontend', 'logo.jpg'), width=300)
-# Add a multiselect widget to allow the user to select multiple datasets
-# The only possible values are 'CIFAR-10' and 'MNIST'
-
-st.sidebar.markdown("# Compare your own performance to popular AI models")
-datasets = st.sidebar.selectbox(
-    'Select the datasets you want to try out:',
-    ['Social-IQ'],
-    index=0)
-st.sidebar.write(
-"""Welcome to MindMatch, a place where you can try out AI benchmarks and compare your results with those from popular large language models. This tool offers a simple way to get hands-on experience with AI, allowing you to see how these technologies perform compared to your own skills.
-
-The app is straightforward, giving everyone, regardless of their expertise in AI, a chance to engage with and understand the capabilities of modern artificial intelligence. Through direct interaction, you can measure your answers against AI responses, providing insight into the current state of AI development.
-
-It's an interesting opportunity to not only challenge the AI but also to challenge yourself, all while maintaining a modest level of enthusiasm. Whether you're curious about AI's abilities or just looking for a unique experience, this web app serves as a window into the advancements of artificial intelligence.
-
-Done as part of the 2024 relAI Safety hackathon!"""
-)
-st.sidebar.image(os.path.join('src', 'frontend', 'relai.png'), width=200)
-
+# st.markdown(
+#         """
+#         <style>
+#             [data-testid="stSidebarNav"] {
+#                 background-image: url(/src/frontend/logo.jpg);
+#                 background-repeat: no-repeat;
+#                 padding-top: 120px;
+#                 background-position: 20px 20px;
+#             }
+#         </style>
+#         """,
+#         unsafe_allow_html=True,
+#     )
+# st.markdown(
+#     """
+#     <style>
+#         section[data-testid="stSidebar"] {
+#             width: 700px !important; # Set the width to your desired value
+#         }
+        
+#     </style>
+#     """,
+#     unsafe_allow_html=True,
+# )
+st.title('MindMatch: Compare Your Thinking Patterns to ChatGPT')
 # TODO: Replace these with real questions froma an LLM Benchmark
 questions_answers = [
     {
@@ -98,29 +96,35 @@ with open(random_subset_path) as f:
 with open(random_subset_label_path) as f:
     questions_labels = f.readlines()
 questions_answers = []
+chatgpt_answers_path = os.path.join('results', 'results.json')
+with open(chatgpt_answers_path) as f:
+    chatgpt_answers = json.load(f)
 
 
-for i in range(3):
+
+
+for i in range(len(questions_subset)):
     question = questions_subset[i]
+    chatgpt_answer = chatgpt_answers["Majority Votes Per Group"][i]
+    answers = [question['answerA'], question['answerB'], question['answerC']]
+    if chatgpt_answer not in answers:
+        chatgpt_answer_index = -1
+    else:
+        chatgpt_answer_index = answers.index(chatgpt_answer)
+    chatgpt_confidence = chatgpt_answers["Confidences"][i]
     qa = {
         'question': question['context'] + ' ' + question['question'],
-        'answers': [question['answerA'], question['answerB'], question['answerC']],
+        'answers': answers,
         'correct_answer': int(questions_labels[i].strip()) - 1,
         'llm_answers': {
-            'GPT-3': {
-                'answer': 1,
-                'confidence': 0.85,
-                'explanation': 'Answer elaboration A'
-            },
             'GPT-4': {
-                'answer': 2,
-                'confidence': 0.95,
+                'answer': chatgpt_answer_index,
+                'confidence': chatgpt_confidence,
                 'explanation': 'Answer elaboration B'
             }
         }
     }
     questions_answers.append(qa)
-print(questions_answers)
 question_count = len(questions_answers)
 
 # Keep track of the answered questions in the session state
@@ -161,7 +165,7 @@ for i, qa in enumerate(questions_answers):
     if next:
         st.session_state.answers_given.append(option)
         # Update to remove the old question
-        st.experimental_rerun()
+        st.rerun()
             
                 
 # Once all questions are answered, show the final score
@@ -219,3 +223,4 @@ if len(st.session_state.answers_given) == len(questions_answers):
 
     # Display the plot
     st.pyplot(fig)
+    st.page_link("Home.py", label="Go back to the main page", icon="🧪")
