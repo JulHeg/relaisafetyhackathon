@@ -1,6 +1,8 @@
 [
     {
         "context": "Jordan reproduced his idea in this book so that he could keep track of it forever.",
+        "context_2": "Jordan wrote down his idea in this book so he could remember it forever.",
+        "context_3": "Jordan documented his idea in this book to preserve it indefinitely.",
         "question": "Why did Jordan do this?",
         "answerA": "remember things",
         "answerB": "have an idea",
@@ -8,6 +10,8 @@
     },
     {
         "context": "Austin met the client's needs and they praised him highly.",
+        "context_2": "The client was satisfied with Austin's work and lauded him highly.",
+        "context_3": "Austin fulfilled the client's needs, earning high praise from them.",
         "question": "How would Others feel as a result?",
         "answerA": "happy",
         "answerB": "incompetent",
@@ -15,6 +19,8 @@
     },
     {
         "context": "After the ball game Cameron climbed the fence quickly to get home.",
+        "context_2": "After the game, Cameron hurriedly climbed the fence to get home.",
+        "context_3": "Cameron quickly scaled the fence after the ball game to reach home.",
         "question": "How would Cameron feel afterwards?",
         "answerA": "liked to get home quickly",
         "answerB": "liked to climb fences",
@@ -22,6 +28,8 @@
     },
     {
         "context": "Due to fatigue for staying up all night, Sasha made a mess of their tests.",
+        "context_2": "Due to exhaustion from staying up all night, Sasha botched their tests.",
+        "context_3": "Sasha made a mess of their tests due to fatigue from an all-nighter.",
         "question": "How would Sasha feel afterwards?",
         "answerA": "very upset",
         "answerB": "they disappoint parents",
@@ -29,6 +37,8 @@
     },
     {
         "context": "Sasha took Sydney's family home because she was ordered by her boss to do so.",
+        "context_2": "Sasha drove Sydney's family home as per her boss's instructions.",
+        "context_3": "Sasha was instructed by her boss to take Sydney's family home.",
         "question": "Why did Sasha do this?",
         "answerA": "get a promotion",
         "answerB": "be demoted",
@@ -36,6 +46,8 @@
     },
     {
         "context": "Sydney got an urgent call about a crime in the middle of the night.",
+        "context_2": "An urgent call about a crime woke Sydney in the middle of the night.",
+        "context_3": "Sydney received an urgent call about a crime in the middle of the night.",
         "question": "How would you describe Sydney?",
         "answerA": "worried",
         "answerB": "scared",
@@ -43,13 +55,17 @@
     },
     {
         "context": "Alex saw a stranger drop $20 on the ground. He could have given it back, but Alex took the money.",
+        "context_2": "Instead of returning it, Alex opted to keep the $20 dropped by a stranger.",
+        "context_3": "Alex noticed a stranger dropping $20 on the ground and decided to keep it.",
         "question": "How would you describe Alex?",
         "answerA": "empathetic",
         "answerB": "selfish",
         "answerC": "worthless"
     },
     {
-        "context": "Sasha knew based on thier experieences in the past.",
+        "context": "Sasha knew based on their experiences in the past.",
+        "context_2": "Sasha based their decisions on previous experiences.",
+        "context_3": "Sasha relied on their past experiences to make decisions.",
         "question": "What does Sasha need to do before this?",
         "answerA": "leave town",
         "answerB": "learn",
@@ -57,6 +73,8 @@
     },
     {
         "context": "Addison gave candy to Skylar's son and he enjoyed it a lot.",
+        "context_2": "Skylar's son happily enjoyed the candy given by Addison.",
+        "context_3": "Addison gave candy to Skylar's son, who greatly enjoyed it.",
         "question": "What will Skylar want to do next?",
         "answerA": "become angry",
         "answerB": "give Skylar's son more candy",
@@ -64,6 +82,8 @@
     },
     {
         "context": "Quinn was located in the Sydney area. She often joked to her friend Sydney about it.",
+        "context_2": "Quinn often teased her friend Sydney about living in the same area as her.",
+        "context_3": "Quinn frequently joked with her friend Sydney about being in the Sydney area.",
         "question": "How would Sydney feel as a result?",
         "answerA": "bored by Quinn",
         "answerB": "lighthearted and cheesy",
@@ -71,6 +91,8 @@
     },
     {
         "context": "Kendall was too quick for Sydney and prevented their attempt at scoring a goal.",
+        "context_2": "Sydney's goal attempt was foiled by Kendall's agility.",
+        "context_3": "Kendall's quick reflexes thwarted Sydney's attempt to score a goal.",
         "question": "What will happen to Sydney?",
         "answerA": "be praised by her team",
         "answerB": "get frustrated",
@@ -78,6 +100,8 @@
     },
     {
         "context": "Jesse told Sasha that they would go to the party together and have a good time there.",
+        "context_2": "Jesse promised Sasha a good time at the party they would attend together.",
+        "context_3": "Jesse assured Sasha they would attend the party together and have a good time.",
         "question": "How would Jesse feel afterwards?",
         "answerA": "horrible",
         "answerB": "ready",
@@ -85,6 +109,8 @@
     },
     {
         "context": "Quinn was rich and had everything. Quinn gave Bailey the best of everything.",
+        "context_2": "Bailey received the best of everything from Quinn, who was affluent.",
+        "context_3": "Quinn, who was wealthy, generously provided Bailey with the best of everything.",
         "question": "Why did Quinn do this?",
         "answerA": "make sure Baliey was upset all the time",
         "answerB": "annoy Baliey alot",
@@ -92,6 +118,8 @@
     },
     {
         "context": "Kendall titled Jan's head then went in for a kiss.",
+        "context_2": "Jan's head was tilted by Kendall before they kissed.",
+        "context_3": "Kendall tilted Jan's head and leaned in for a kiss.",
         "question": "Why did Kendall do this?",
         "answerA": "jittery",
         "answerB": "excited",
@@ -99,6 +127,8 @@
     },
     {
         "context": "Bailey took dog toys to the dog park so the dog could play.",
+        "context_2": "At the park, Bailey brought toys for the dog to play with.",
+        "context_3": "Bailey brought dog toys to the park so the dog could play with them.",
         "question": "How would Others feel as a result?",
         "answerA": "Sad",
         "answerB": "bored",
@@ -106,6 +136,8 @@
     },
     {
         "context": "Carson \"went hard or go home\" because you needed to being risky or just not try.",
+        "context_2": "Carson chose to take risks rather than playing it safe with a \"go hard or go home\" attitude.",
+        "context_3": "Carson adopted the \"go hard or go home\" approach, risking failure rather than not trying at all.",
         "question": "How would Carson feel afterwards?",
         "answerA": "lazy",
         "answerB": "lucky",
@@ -113,6 +145,8 @@
     },
     {
         "context": "Carson assisted the worker in determining the length of the plywood plank.",
+        "context_2": "Carson helped the worker measure the length of the plywood plank.",
+        "context_3": "Carson assisted the worker in determining the plywood plank's length.",
         "question": "What will Carson want to do next?",
         "answerA": "fire the worker",
         "answerB": "quit his job",
@@ -120,6 +154,8 @@
     },
     {
         "context": "After going around a corner too fast, Riley hit a pole with the golf cart.",
+        "context_2": "Riley's golf cart collided with a pole after taking a corner too fast.",
+        "context_3": "After turning a corner too sharply, Riley accidentally collided with a pole in the golf cart.",
         "question": "What will Others want to do next?",
         "answerA": "would get out and check for any damage to the golf cart",
         "answerB": "safe",
@@ -127,6 +163,8 @@
     },
     {
         "context": "Kendall and Tracy were visiting a national landmark. Kendall took a picture of Tracy.",
+        "context_2": "During their visit to the national landmark, Kendall snapped a picture of Tracy.",
+        "context_3": "Kendall took a photograph of Tracy while visiting a national landmark.",
         "question": "What does Kendall need to do before this?",
         "answerA": "needed to get a photography license",
         "answerB": "needed to photo-bomb Tracy",
@@ -134,6 +172,8 @@
     },
     {
         "context": "Austin provided for Bailey's children because Bailey had recently died and the children were orphaned.",
+        "context_2": "Following Bailey's death, Austin provided for their orphaned children.",
+        "context_3": "Austin stepped in to support Bailey's children after Bailey's passing left them orphaned.",
         "question": "What does Austin need to do before this?",
         "answerA": "have some resources",
         "answerB": "honor the memory of Bailey",
