@@ -2,7 +2,7 @@ import json
 from collections import Counter
 
 # Load the JSON data from a file
-with open('results/openai_responses.json', 'r') as file:
+with open('results/gpt-3.5-turbo_responses.json', 'r') as file:
     data = json.load(file)
 
 group_size = 18
@@ -25,7 +25,7 @@ for i in range(0, len(data), group_size):
     # Find the majority vote ensuring it's an integer
     majority_vote = None
     for response, count in response_counts.most_common():
-        # Check if the response is an integer
+        # Check if the response is not None
         if response:
             majority_vote = response
             confidences.append(count / len(group))
@@ -44,9 +44,6 @@ for i in range(0, len(data), group_size):
     # Check if the majority vote is the correct answer and increment correct_majority_votes if it is
     if majority_vote and (majority_vote == correct_answer):
         correct_majority_votes += 1
-        # print(majority_vote)
-    else:
-        print(majority_vote)
 
 # Calculate the overall accuracy based on the majority votes
 majority_vote_accuracy = (correct_majority_votes / total_groups) * 100
@@ -66,7 +63,7 @@ results = {
 }
 
 # Save the results to a file in a pretty format
-with open('results/results.json', 'w') as outfile:
+with open('results/gpt-3.5-turbo_results.json', 'w') as outfile:
     json.dump(results, outfile, indent=4)
 
 print("Results saved to results.json")

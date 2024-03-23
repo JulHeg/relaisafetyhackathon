@@ -29,7 +29,7 @@ anthropic_client = anthropic.Anthropic(api_key=claude_api_key)
 def get_response(prompt, model):
     if model == 'openai':
         completion = openai_client.chat.completions.create(
-            model="gpt-4",
+            model="gpt-3.5-turbo",
             messages=[
                 {"role": "user", "content": prompt}
             ],
@@ -47,13 +47,12 @@ def get_response(prompt, model):
             ],
             temperature=0.0,
             max_tokens=32,
-            stop_sequences=["A", "B", "C"],
+            stop_sequences=["1", "2", "3"],
         )
         return message.stop_sequence
 
 with open('data/random_subset_rephrased_combined.json') as file:
     dataset = json.load(file)
-    dataset = dataset[:1]
 
 with open('data/random_subset_rephrased_combined.lst', 'r') as file:
     correct_labels = [int(line.strip()) for line in file.readlines()]
@@ -89,5 +88,5 @@ for index, item in enumerate(dataset):
             }
             results.append(result)
 
-with open(f'{args.model}_responses.json', 'w') as file:
+with open('results/gpt-3.5-turbo_responses.json', 'w') as file:
     json.dump(results, file, indent=2)
