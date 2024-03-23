@@ -5,6 +5,7 @@ import json
 import random
     
 st.set_page_config(page_title='MindMatch', page_icon='🧪', layout="centered", initial_sidebar_state="expanded", menu_items=None)
+st.title('MindMatch: Compare Your Thinking Patterns to ChatGPT')
 st.sidebar.image('logo.jpg', width=300)
 # Add a multiselect widget to allow the user to select multiple datasets
 # The only possible values are 'CIFAR-10' and 'MNIST'
@@ -19,9 +20,11 @@ st.sidebar.write(
 
 The app is straightforward, giving everyone, regardless of their expertise in AI, a chance to engage with and understand the capabilities of modern artificial intelligence. Through direct interaction, you can measure your answers against AI responses, providing insight into the current state of AI development.
 
-It's an interesting opportunity to not only challenge the AI but also to challenge yourself, all while maintaining a modest level of enthusiasm. Whether you're curious about AI's abilities or just looking for a unique experience, this web app serves as a window into the advancements of artificial intelligence."""
+It's an interesting opportunity to not only challenge the AI but also to challenge yourself, all while maintaining a modest level of enthusiasm. Whether you're curious about AI's abilities or just looking for a unique experience, this web app serves as a window into the advancements of artificial intelligence.
+
+Done as part of the 2024 relAI Safety hackathon!"""
 )
-st.title('MindMatch: Compare Your Thinking Patterns to ChatGPT')
+st.sidebar.image('relai.png', width=200)
 
 # TODO: Replace these with real questions froma an LLM Benchmark
 questions_answers = [
