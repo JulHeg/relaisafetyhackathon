@@ -91,7 +91,7 @@ questions_answers = [
      }
 ]
 
-random_subset_path = os.path.join('..', '..', 'data', 'raw_data', 'random_subset.json')
+random_subset_path = os.path.join('data', 'raw_data', 'random_subset.json')
 with open(random_subset_path) as f:
     questions_subset = json.load(f)
 questions_answers = []
