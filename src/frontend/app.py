@@ -143,7 +143,6 @@ for i, qa in enumerate(questions_answers):
                 st.write(model_answer['explanation'])
         # Make a 'Next' button to go to the next question
     next = st.button('Next', key=f'next_{i}')
-    print(next)
     if next:
         st.session_state.answers_given.append(option)
         # Update to remove the old question
