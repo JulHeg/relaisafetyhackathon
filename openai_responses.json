@@ -1,0 +1,218 @@
+[
+  {
+    "context": "Jordan reproduced his idea in this book so that he could keep track of it forever.",
+    "question": "Why did Jordan do this?",
+    "prompt": "You are taking a multiple choice test. You will be shown a context and a question, followed by numbered multiple choice answers. Respond with the number corresponding to the correct answer.\n\nContext: Jordan reproduced his idea in this book so that he could keep track of it forever.\nQuestion: Why did Jordan do this?\n1. remember things\n2. have an idea\n3. write the idea down\n\nCorrect Answer:",
+    "options": [
+      "remember things",
+      "have an idea",
+      "write the idea down"
+    ],
+    "correct_answer": 1,
+    "model_response": "1"
+  },
+  {
+    "context": "Jordan reproduced his idea in this book so that he could keep track of it forever.",
+    "question": "Why did Jordan do this?",
+    "prompt": "You are taking a multiple choice test. You will be shown a context and a question, followed by numbered multiple choice answers. Respond with the number corresponding to the correct answer.\n\nContext: Jordan reproduced his idea in this book so that he could keep track of it forever.\nQuestion: Why did Jordan do this?\n1. remember things\n2. write the idea down\n3. have an idea\n\nCorrect Answer:",
+    "options": [
+      "remember things",
+      "write the idea down",
+      "have an idea"
+    ],
+    "correct_answer": 1,
+    "model_response": "2"
+  },
+  {
+    "context": "Jordan reproduced his idea in this book so that he could keep track of it forever.",
+    "question": "Why did Jordan do this?",
+    "prompt": "You are taking a multiple choice test. You will be shown a context and a question, followed by numbered multiple choice answers. Respond with the number corresponding to the correct answer.\n\nContext: Jordan reproduced his idea in this book so that he could keep track of it forever.\nQuestion: Why did Jordan do this?\n1. have an idea\n2. remember things\n3. write the idea down\n\nCorrect Answer:",
+    "options": [
+      "have an idea",
+      "remember things",
+      "write the idea down"
+    ],
+    "correct_answer": 2,
+    "model_response": "3"
+  },
+  {
+    "context": "Jordan reproduced his idea in this book so that he could keep track of it forever.",
+    "question": "Why did Jordan do this?",
+    "prompt": "You are taking a multiple choice test. You will be shown a context and a question, followed by numbered multiple choice answers. Respond with the number corresponding to the correct answer.\n\nContext: Jordan reproduced his idea in this book so that he could keep track of it forever.\nQuestion: Why did Jordan do this?\n1. have an idea\n2. write the idea down\n3. remember things\n\nCorrect Answer:",
+    "options": [
+      "have an idea",
+      "write the idea down",
+      "remember things"
+    ],
+    "correct_answer": 3,
+    "model_response": "3"
+  },
+  {
+    "context": "Jordan reproduced his idea in this book so that he could keep track of it forever.",
+    "question": "Why did Jordan do this?",
+    "prompt": "You are taking a multiple choice test. You will be shown a context and a question, followed by numbered multiple choice answers. Respond with the number corresponding to the correct answer.\n\nContext: Jordan reproduced his idea in this book so that he could keep track of it forever.\nQuestion: Why did Jordan do this?\n1. write the idea down\n2. remember things\n3. have an idea\n\nCorrect Answer:",
+    "options": [
+      "write the idea down",
+      "remember things",
+      "have an idea"
+    ],
+    "correct_answer": 2,
+    "model_response": "2"
+  },
+  {
+    "context": "Jordan reproduced his idea in this book so that he could keep track of it forever.",
+    "question": "Why did Jordan do this?",
+    "prompt": "You are taking a multiple choice test. You will be shown a context and a question, followed by numbered multiple choice answers. Respond with the number corresponding to the correct answer.\n\nContext: Jordan reproduced his idea in this book so that he could keep track of it forever.\nQuestion: Why did Jordan do this?\n1. write the idea down\n2. have an idea\n3. remember things\n\nCorrect Answer:",
+    "options": [
+      "write the idea down",
+      "have an idea",
+      "remember things"
+    ],
+    "correct_answer": 3,
+    "model_response": "1"
+  },
+  {
+    "context": "Jordan wrote down his idea in this book so he could remember it forever.",
+    "question": "Why did Jordan do this?",
+    "prompt": "You are taking a multiple choice test. You will be shown a context and a question, followed by numbered multiple choice answers. Respond with the number corresponding to the correct answer.\n\nContext: Jordan wrote down his idea in this book so he could remember it forever.\nQuestion: Why did Jordan do this?\n1. remember things\n2. have an idea\n3. write the idea down\n\nCorrect Answer:",
+    "options": [
+      "remember things",
+      "have an idea",
+      "write the idea down"
+    ],
+    "correct_answer": 1,
+    "model_response": "1"
+  },
+  {
+    "context": "Jordan wrote down his idea in this book so he could remember it forever.",
+    "question": "Why did Jordan do this?",
+    "prompt": "You are taking a multiple choice test. You will be shown a context and a question, followed by numbered multiple choice answers. Respond with the number corresponding to the correct answer.\n\nContext: Jordan wrote down his idea in this book so he could remember it forever.\nQuestion: Why did Jordan do this?\n1. remember things\n2. write the idea down\n3. have an idea\n\nCorrect Answer:",
+    "options": [
+      "remember things",
+      "write the idea down",
+      "have an idea"
+    ],
+    "correct_answer": 1,
+    "model_response": "1"
+  },
+  {
+    "context": "Jordan wrote down his idea in this book so he could remember it forever.",
+    "question": "Why did Jordan do this?",
+    "prompt": "You are taking a multiple choice test. You will be shown a context and a question, followed by numbered multiple choice answers. Respond with the number corresponding to the correct answer.\n\nContext: Jordan wrote down his idea in this book so he could remember it forever.\nQuestion: Why did Jordan do this?\n1. have an idea\n2. remember things\n3. write the idea down\n\nCorrect Answer:",
+    "options": [
+      "have an idea",
+      "remember things",
+      "write the idea down"
+    ],
+    "correct_answer": 2,
+    "model_response": "2"
+  },
+  {
+    "context": "Jordan wrote down his idea in this book so he could remember it forever.",
+    "question": "Why did Jordan do this?",
+    "prompt": "You are taking a multiple choice test. You will be shown a context and a question, followed by numbered multiple choice answers. Respond with the number corresponding to the correct answer.\n\nContext: Jordan wrote down his idea in this book so he could remember it forever.\nQuestion: Why did Jordan do this?\n1. have an idea\n2. write the idea down\n3. remember things\n\nCorrect Answer:",
+    "options": [
+      "have an idea",
+      "write the idea down",
+      "remember things"
+    ],
+    "correct_answer": 3,
+    "model_response": "3"
+  },
+  {
+    "context": "Jordan wrote down his idea in this book so he could remember it forever.",
+    "question": "Why did Jordan do this?",
+    "prompt": "You are taking a multiple choice test. You will be shown a context and a question, followed by numbered multiple choice answers. Respond with the number corresponding to the correct answer.\n\nContext: Jordan wrote down his idea in this book so he could remember it forever.\nQuestion: Why did Jordan do this?\n1. write the idea down\n2. remember things\n3. have an idea\n\nCorrect Answer:",
+    "options": [
+      "write the idea down",
+      "remember things",
+      "have an idea"
+    ],
+    "correct_answer": 2,
+    "model_response": "2"
+  },
+  {
+    "context": "Jordan wrote down his idea in this book so he could remember it forever.",
+    "question": "Why did Jordan do this?",
+    "prompt": "You are taking a multiple choice test. You will be shown a context and a question, followed by numbered multiple choice answers. Respond with the number corresponding to the correct answer.\n\nContext: Jordan wrote down his idea in this book so he could remember it forever.\nQuestion: Why did Jordan do this?\n1. write the idea down\n2. have an idea\n3. remember things\n\nCorrect Answer:",
+    "options": [
+      "write the idea down",
+      "have an idea",
+      "remember things"
+    ],
+    "correct_answer": 3,
+    "model_response": "3"
+  },
+  {
+    "context": "Jordan documented his idea in this book to preserve it indefinitely.",
+    "question": "Why did Jordan do this?",
+    "prompt": "You are taking a multiple choice test. You will be shown a context and a question, followed by numbered multiple choice answers. Respond with the number corresponding to the correct answer.\n\nContext: Jordan documented his idea in this book to preserve it indefinitely.\nQuestion: Why did Jordan do this?\n1. remember things\n2. have an idea\n3. write the idea down\n\nCorrect Answer:",
+    "options": [
+      "remember things",
+      "have an idea",
+      "write the idea down"
+    ],
+    "correct_answer": 1,
+    "model_response": "3"
+  },
+  {
+    "context": "Jordan documented his idea in this book to preserve it indefinitely.",
+    "question": "Why did Jordan do this?",
+    "prompt": "You are taking a multiple choice test. You will be shown a context and a question, followed by numbered multiple choice answers. Respond with the number corresponding to the correct answer.\n\nContext: Jordan documented his idea in this book to preserve it indefinitely.\nQuestion: Why did Jordan do this?\n1. remember things\n2. write the idea down\n3. have an idea\n\nCorrect Answer:",
+    "options": [
+      "remember things",
+      "write the idea down",
+      "have an idea"
+    ],
+    "correct_answer": 1,
+    "model_response": "2"
+  },
+  {
+    "context": "Jordan documented his idea in this book to preserve it indefinitely.",
+    "question": "Why did Jordan do this?",
+    "prompt": "You are taking a multiple choice test. You will be shown a context and a question, followed by numbered multiple choice answers. Respond with the number corresponding to the correct answer.\n\nContext: Jordan documented his idea in this book to preserve it indefinitely.\nQuestion: Why did Jordan do this?\n1. have an idea\n2. remember things\n3. write the idea down\n\nCorrect Answer:",
+    "options": [
+      "have an idea",
+      "remember things",
+      "write the idea down"
+    ],
+    "correct_answer": 2,
+    "model_response": "3"
+  },
+  {
+    "context": "Jordan documented his idea in this book to preserve it indefinitely.",
+    "question": "Why did Jordan do this?",
+    "prompt": "You are taking a multiple choice test. You will be shown a context and a question, followed by numbered multiple choice answers. Respond with the number corresponding to the correct answer.\n\nContext: Jordan documented his idea in this book to preserve it indefinitely.\nQuestion: Why did Jordan do this?\n1. have an idea\n2. write the idea down\n3. remember things\n\nCorrect Answer:",
+    "options": [
+      "have an idea",
+      "write the idea down",
+      "remember things"
+    ],
+    "correct_answer": 3,
+    "model_response": "2"
+  },
+  {
+    "context": "Jordan documented his idea in this book to preserve it indefinitely.",
+    "question": "Why did Jordan do this?",
+    "prompt": "You are taking a multiple choice test. You will be shown a context and a question, followed by numbered multiple choice answers. Respond with the number corresponding to the correct answer.\n\nContext: Jordan documented his idea in this book to preserve it indefinitely.\nQuestion: Why did Jordan do this?\n1. write the idea down\n2. remember things\n3. have an idea\n\nCorrect Answer:",
+    "options": [
+      "write the idea down",
+      "remember things",
+      "have an idea"
+    ],
+    "correct_answer": 2,
+    "model_response": "1"
+  },
+  {
+    "context": "Jordan documented his idea in this book to preserve it indefinitely.",
+    "question": "Why did Jordan do this?",
+    "prompt": "You are taking a multiple choice test. You will be shown a context and a question, followed by numbered multiple choice answers. Respond with the number corresponding to the correct answer.\n\nContext: Jordan documented his idea in this book to preserve it indefinitely.\nQuestion: Why did Jordan do this?\n1. write the idea down\n2. have an idea\n3. remember things\n\nCorrect Answer:",
+    "options": [
+      "write the idea down",
+      "have an idea",
+      "remember things"
+    ],
+    "correct_answer": 3,
+    "model_response": "1"
+  }
+]
