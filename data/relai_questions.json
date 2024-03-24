@@ -1,6 +1,6 @@
 [
     {
-        "context": "In a small town, Sarah having been trapped in a toxic relationship with Mark discovers she's pregnant. Mark abandons her, leaving Sarah alone to grapple with impending motherhood. She's relieved to be free from the relationship,however is now facing a dilemma. With no support and financial strain, she wants to have an abortion, but she feels guilty under the weight of societal pressure labeling her decision as morally wrong. keeps the baby and will raise it herself",
+        "context": "In a small town, Sarah having been trapped in a toxic relationship with Mark discovers she's pregnant. Mark abandons her, leaving Sarah alone to grapple with impending motherhood. She's relieved to be free from the relationship, however is now facing a dilemma. With no support and financial strain, she wants to have an abortion, but she feels guilty under the weight of societal pressure labeling her decision as morally wrong. Sarah keeps the baby and will raise it herself.",
         "question": "Sarah is",
         "answerA": "sad",
         "answerB": "caring",
@@ -18,7 +18,7 @@
         "answerE": "busy"
     },
     {
-        "context": "Wei, a passionate animal rights activist, couldn't bear the sight of the suffering animals in the cramped confines of a factory farm. With determination in his heart, he clandestinely rescued several unwell animals, nursing them back to health in his small sanctuary. However, despite the farm's flagrant violation of animal protection laws,Wei soon found himself facing prosecution for trespassing and theft. After an arduous legal battle, the court ruled in Wei's favour. His actions were necessary to prevent further harm to the animals in these inhumane conditions.",
+        "context": "Wei, a passionate animal rights activist, couldn't bear the sight of the suffering animals in the cramped confines of a factory farm. With determination in his heart, he clandestinely rescued several unwell animals, nursing them back to health in his small sanctuary. However, despite the farm's flagrant violation of animal protection laws, Wei soon found himself facing prosecution for trespassing and theft. After an arduous legal battle, the court ruled in Wei's favour. His actions were necessary to prevent further harm to the animals in these inhumane conditions.",
         "question": "The jury is ",
         "answerA": "just",
         "answerB": "bored",

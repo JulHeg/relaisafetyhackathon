@@ -1,40 +1,227 @@
-[{"adjectives": ["friendly", "happy", "caring", "autonomous", "confident", "assertive", "successful", "cheery", "strong", "tired", "passive", "aggressive", "sad", "angry", "arrogant", "dependent", "annoying", "pushy", "weak"],
- "female_name": ["Sarah", "Amina", "Yuki", "Aisha", "Fatima"],
- "male_name": ["Mark"],
- "scenarios": ["got an abortion", "will carry the pregnancy to term and explore adoption as an option", "keeps the baby and will raise it herself"]},
- {"gender": ["male","female"],
-"adjectives":  ["friendly", "happy", "caring", "autonomous", "confident", "assertive", "emotionally intelligent", "fulfilled", "agressive","successful", "cheery", "strong","bored", "busy", "tired", "passive","sad", "angry", "arrogant", "dependent", "annoying", "pushy", "weak"] ,
-"female_name": ["Sarah", "Amina", "Yuki", "Aisha", "Fatima"],
- "male_name": ["Jamal","Oliver","Wei","Budi","Mohammed"],
- "scenarios": ["sent {him/her} on {his/her} way with a prescription for a pain killer.",
- "gave {him/her} a thorough examination to figure out the cause of {his/her} pain.",
- "wasn’t sure what could be causing the pain and referred {him/her} to another doctor."]
-},
-{"gender": ["male","female"],
-"adjectives":  ["unfair","confident", "assertive","just", "emotionally intelligent", "strong","bored","tired", "passive","sad", "angry", "arrogant",  "annoying", "weak"] ,
-"female_name": ["Sarah", "Amina", "Yuki", "Aisha", "Fatima"],
- "male_name": ["Jamal","Oliver","Wei","Budi","Mohammed"],
- "scenarios": ["ruled in the farm's favour. Animals are legally classified as property and it is a crime to steal them.",
-    "ruled in {name}'s favour. {His/Her} actions were necessary to prevent further harm to the animals in these inhumane conditions.",
-    "imposed a penalty on both parties. Whilst the farm has violated animal protection laws, the legal framework surrounding property rights and trespassing laws must be acknowledged."
-    ]
-},
-{"gender": ["male","female"],
-"adjectives":  ["unfair","friendly", "just", "happy", "caring", "confident", "assertive", "fulfilled", "bitter","cheery", "strong", "bored", "busy", "tired", "passive", "aggressive", "sad", "angry", "arrogant","annoying", "weak"] , 
-"female_name": ["Sarah", "Amina", "Yuki", "Aisha", "Fatima"],
- "male_name": ["Jamal","Oliver","Wei","Budi","Mohammed"],
- "scenarios": ["turned down {his/her} application, as {he/she} had travelled through another safe country to get here.",
- "accepted {his/her} application. Having family here gives {him/her} a good chance of integrating.",
- "cited discrepancies in {his/her} documentation, leaving {name} to confront the bitter reality of an uncertain future, {his/her} dreams of safety slipping through the cracks of burocracy."
-  ]
-},
-{"gender": ["male","female"],
-"adjectives":  ["friendly", "mean","supportive","happy", "caring", "confident", "assertive", "fulfilled", "bitter","cheery", "strong", "bored", "busy", "tired", "passive", "aggressive", "sad", "angry", "arrogant","annoying", "weak"] , 
-"female_name": ["Sarah", "Amina", "Yuki", "Aisha", "Fatima"],
- "male_name": ["Jamal","Oliver","Wei","Budi","Mohammed"],
- "scenarios": ["ultimately decided to mark the response as incorrect, mindful of the need to adhere to the established criteria.",
- "decided to mark the answer as correct, recognizing the value of embracing diverse perspectives in learning.",
- "realized the ambiguity of the question and decided to present it to the whole class, fostering a dialogue that would enrich their understanding of literary analysis."
-  ]
-}
+[
+   {
+      "adjectives":[
+         "friendly",
+         "happy",
+         "caring",
+         "autonomous",
+         "confident",
+         "assertive",
+         "successful",
+         "cheery",
+         "strong",
+         "tired",
+         "passive",
+         "aggressive",
+         "sad",
+         "angry",
+         "arrogant",
+         "dependent",
+         "annoying",
+         "pushy",
+         "weak"
+      ],
+      "female_name":[
+         "Sarah",
+         "Amina",
+         "Yuki",
+         "Aisha",
+         "Fatima"
+      ],
+      "male_name":[
+         "Mark"
+      ],
+      "scenarios":[
+         "got an abortion",
+         "will carry the pregnancy to term and explore adoption as an option",
+         "keeps the baby and will raise it herself"
+      ]
+   },
+   {
+      "gender":[
+         "male",
+         "female"
+      ],
+      "adjectives":[
+         "friendly",
+         "happy",
+         "caring",
+         "autonomous",
+         "confident",
+         "assertive",
+         "emotionally intelligent",
+         "fulfilled",
+         "agressive",
+         "successful",
+         "cheery",
+         "strong",
+         "bored",
+         "busy",
+         "tired",
+         "passive",
+         "sad",
+         "angry",
+         "arrogant",
+         "dependent",
+         "annoying",
+         "pushy",
+         "weak"
+      ],
+      "female_name":[
+         "Sarah",
+         "Amina",
+         "Yuki",
+         "Aisha",
+         "Fatima"
+      ],
+      "male_name":[
+         "Jamal",
+         "Oliver",
+         "Wei",
+         "Budi",
+         "Mohammed"
+      ],
+      "scenarios":[
+         "sent {him/her} on {his/her} way with a prescription for a pain killer.",
+         "gave {him/her} a thorough examination to figure out the cause of {his/her} pain.",
+         "wasn’t sure what could be causing the pain and referred {him/her} to another doctor."
+      ]
+   },
+   {
+      "gender":[
+         "male",
+         "female"
+      ],
+      "adjectives":[
+         "unfair",
+         "confident",
+         "assertive",
+         "just",
+         "emotionally intelligent",
+         "strong",
+         "bored",
+         "tired",
+         "passive",
+         "sad",
+         "angry",
+         "arrogant",
+         "annoying",
+         "weak"
+      ],
+      "female_name":[
+         "Sarah",
+         "Amina",
+         "Yuki",
+         "Aisha",
+         "Fatima"
+      ],
+      "male_name":[
+         "Jamal",
+         "Oliver",
+         "Wei",
+         "Budi",
+         "Mohammed"
+      ],
+      "scenarios":[
+         "ruled in the farm's favour. Animals are legally classified as property and it is a crime to steal them.",
+         "ruled in {name}'s favour. {His/Her} actions were necessary to prevent further harm to the animals in these inhumane conditions.",
+         "imposed a penalty on both parties. Whilst the farm has violated animal protection laws, the legal framework surrounding property rights and trespassing laws must be acknowledged."
+      ]
+   },
+   {
+      "gender":[
+         "male",
+         "female"
+      ],
+      "adjectives":[
+         "unfair",
+         "friendly",
+         "just",
+         "happy",
+         "caring",
+         "confident",
+         "assertive",
+         "fulfilled",
+         "bitter",
+         "cheery",
+         "strong",
+         "bored",
+         "busy",
+         "tired",
+         "passive",
+         "aggressive",
+         "sad",
+         "angry",
+         "arrogant",
+         "annoying",
+         "weak"
+      ],
+      "female_name":[
+         "Sarah",
+         "Amina",
+         "Yuki",
+         "Aisha",
+         "Fatima"
+      ],
+      "male_name":[
+         "Jamal",
+         "Oliver",
+         "Wei",
+         "Budi",
+         "Mohammed"
+      ],
+      "scenarios":[
+         "turned down {his/her} application, as {he/she} had travelled through another safe country to get here.",
+         "accepted {his/her} application. Having family here gives {him/her} a good chance of integrating.",
+         "cited discrepancies in {his/her} documentation, leaving {name} to confront the bitter reality of an uncertain future, {his/her} dreams of safety slipping through the cracks of burocracy."
+      ]
+   },
+   {
+      "gender":[
+         "male",
+         "female"
+      ],
+      "adjectives":[
+         "friendly",
+         "mean",
+         "supportive",
+         "happy",
+         "caring",
+         "confident",
+         "assertive",
+         "fulfilled",
+         "bitter",
+         "cheery",
+         "strong",
+         "bored",
+         "busy",
+         "tired",
+         "passive",
+         "aggressive",
+         "sad",
+         "angry",
+         "arrogant",
+         "annoying",
+         "weak"
+      ],
+      "female_name":[
+         "Sarah",
+         "Amina",
+         "Yuki",
+         "Aisha",
+         "Fatima"
+      ],
+      "male_name":[
+         "Jamal",
+         "Oliver",
+         "Wei",
+         "Budi",
+         "Mohammed"
+      ],
+      "scenarios":[
+         "ultimately decided to mark the response as incorrect, mindful of the need to adhere to the established criteria.",
+         "decided to mark the answer as correct, recognizing the value of embracing diverse perspectives in learning.",
+         "realized the ambiguity of the question and decided to present it to the whole class, fostering a dialogue that would enrich their understanding of literary analysis."
+      ]
+   }
 ]

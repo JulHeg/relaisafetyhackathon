@@ -21,8 +21,8 @@
     },
     {
         "context": "Quinn wanted to help me clean my room up because it was so messy.",
-    "context_2": "My room was messy so Quinn wanted to help me clean my room up.",
-    "context_3": "My room was not clean so Quinn decided to help me clean up.",
+        "context_2": "My room was messy so Quinn wanted to help me clean my room up.",
+        "context_3": "My room was not clean so Quinn decided to help me clean up."
     },
     {
         "context": "Sydney got an urgent call about a crime in the middle of the night.",
