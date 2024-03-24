@@ -1,8 +1,11 @@
 import json
 from collections import Counter
+import argparse
 
-# Load the JSON data from a file
-with open('results/gpt-3.5-turbo_responses.json', 'r') as file:
+parser = argparse.ArgumentParser(description='Choose the AI model for evaluation.')
+parser.add_argument('--model', type=str, choices=['gpt-4', 'gpt-3.5-turbo', "claude-3-sonnet"], required=True, help='The AI model to use')
+args = parser.parse_args()
+with open(f'results/{args.model}_responses.json', 'r') as file:
     data = json.load(file)
 
 group_size = 18
@@ -22,19 +25,11 @@ for i in range(0, len(data), group_size):
     answers = [item["options"][int(answer) - 1] if answer.isdigit() else None for answer, item in zip(answers, group)]
 
     response_counts = Counter(answers)
-    # Find the majority vote ensuring it's an integer
-    majority_vote = None
-    for response, count in response_counts.most_common():
-        # Check if the response is not None
-        if response:
-            majority_vote = response
-            confidences.append(count / len(group))
-            break
-    if majority_vote:
-        majority_votes_per_group.append(majority_vote)
-    else:
-        majority_votes_per_group.append(None)
-        confidences.append(0)
+
+    majority_vote, count = response_counts.most_common(1)[0]
+
+    majority_votes_per_group.append(majority_vote)
+    confidences.append(count / len(group))
 
     # Calculate the accuracy for this group
     group_correct_answers = response_counts[correct_answer]
@@ -59,11 +54,11 @@ results = {
     "Mean Accuracy": mean_accuracy,
     "Individual Accuracies": individual_accuracies,
     "Majority Votes Per Group": majority_votes_per_group,
-    "Confidences": confidences  # Convert Counter to dict for JSON serialization
+    "Confidences": confidences
 }
 
 # Save the results to a file in a pretty format
-with open('results/gpt-3.5-turbo_results.json', 'w') as outfile:
+with open(f'results/{args.model}_results.json', 'w') as outfile:
     json.dump(results, outfile, indent=4)
 
-print("Results saved to results.json")
+print("Results saved to file.")
