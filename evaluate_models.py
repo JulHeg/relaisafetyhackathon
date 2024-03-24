@@ -3,7 +3,7 @@ from collections import Counter
 import argparse
 
 parser = argparse.ArgumentParser(description='Choose the AI model for evaluation.')
-parser.add_argument('--model', type=str, choices=['gpt-4', 'gpt-3.5-turbo', "claude-3-sonnet"], required=True, help='The AI model to use')
+parser.add_argument('--model', type=str, choices=['gpt-4', 'gpt-3.5-turbo', "claude-3-sonnet", "llama-7b-chat"], required=True, help='The AI model to use')
 args = parser.parse_args()
 with open(f'results/{args.model}_responses.json', 'r') as file:
     data = json.load(file)

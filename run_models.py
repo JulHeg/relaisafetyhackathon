@@ -6,10 +6,11 @@ import openai
 import anthropic
 from tenacity import retry, retry_any, wait_fixed, stop_after_attempt, retry_if_exception_type
 import itertools
+import replicate
 
 # Initialize argparse to accept command line arguments
 parser = argparse.ArgumentParser(description='Choose the AI model for evaluation.')
-parser.add_argument('--model', type=str, choices=['gpt-4', 'gpt-3.5-turbo', "claude-3-sonnet"], required=True, help='The AI model to use')
+parser.add_argument('--model', type=str, choices=['gpt-4', 'gpt-3.5-turbo', "claude-3-sonnet", "llama-7b-chat"], required=True, help='The AI model to use')
 args = parser.parse_args()
 
 load_dotenv()
@@ -55,6 +56,31 @@ def get_response(prompt):
             return message.stop_sequence
         else:
             return message.content[0].text.strip()
+    elif args.model == 'llama-7b-chat':
+        system = prompt.split("\n\n")[0]
+        user = "\n\n".join(prompt.split("\n\n")[1:])
+        message = replicate.run(
+            "meta/llama-2-7b-chat:8e6975e5ed6174911a6ff3d60540dfd4844201974602551e10e9e87ab143d81e",
+            input={
+                "seed": 42,
+                "debug": False,
+                "prompt": user,
+                "system_prompt": system,
+                "temperature": 0.01,
+                "max_new_tokens": 64,
+                "repetition_penalty": 1.0,
+                "stop_sequences": "</s>"
+            }
+        )
+        output = ''.join(message)
+        if "1" in output:
+            return "1"
+        elif "2" in output:
+            return "2"
+        elif "3" in output:
+            return "3"
+        else:
+            return output
     else:
         NotImplementedError(f"Model {args.model} not implemented")
 
