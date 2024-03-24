@@ -1,0 +1,17 @@
+{
+    "Total Groups": 5,
+    "Majority Votes Per Group": [
+        "autonomous",
+        "busy",
+        "just",
+        "assertive",
+        "supportive"
+    ],
+    "Confidences": [
+        0.6166666666666667,
+        0.49166666666666664,
+        1.0,
+        0.5666666666666667,
+        1.0
+    ]
+}

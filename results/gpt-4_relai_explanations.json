@@ -1,0 +1,27 @@
+[
+  {
+    "id": 0,
+    "explanation": "Sarah is autonomous because she is making decisions and taking actions on her own, despite the difficult circumstances she is facing.",
+    "majority_answer": "autonomous"
+  },
+  {
+    "id": 1,
+    "explanation": "The text does not provide information about the doctor's emotional intelligence, confidence, strength, or arrogance. The only information given is that the doctor gave Fatima a prescription and sent her on her way, which could imply that the doctor is busy.",
+    "majority_answer": "busy"
+  },
+  {
+    "id": 2,
+    "explanation": "The jury is considered \"just\" because they ruled in Wei's favor, recognizing that his actions were necessary to prevent further harm to the animals, despite the fact that he technically trespassed and stole the animals.",
+    "majority_answer": "just"
+  },
+  {
+    "id": 3,
+    "explanation": "The text does not provide information on the officials being just, unfair, bitter, or happy. However, it mentions that they cited discrepancies in Budi's documentation, which suggests they are assertive in their duties.",
+    "majority_answer": "assertive"
+  },
+  {
+    "id": 4,
+    "explanation": "Mrs. Thompson is supportive because she recognizes the value in Fatima's unique perspective and decides to use it as a learning opportunity for the whole class, which shows her support for her students' learning and understanding.",
+    "majority_answer": "supportive"
+  }
+]

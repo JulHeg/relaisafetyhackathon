@@ -14,7 +14,8 @@ Despite humans showcasing a high accuracy rate of 95.08% in reasoning about thes
 st.title('Social-IQ Benchmark')
 model_images = {
     'GPT-4': os.path.join('src', 'frontend', 'gpt-4.jpg'),
-    'GPT-3.5': os.path.join('src', 'frontend', 'gpt-3.5.png')
+    'GPT-3.5': os.path.join('src', 'frontend', 'gpt-3.5.png'),
+    'Llama-7b': os.path.join('src', 'frontend','llama.jpg'),
 }
 random_subset_path = os.path.join('data', 'random_subset_rephrased_combined.json')
 random_subset_label_path = os.path.join('data', 'raw_data', 'random_subset_labels_rephrased.lst')
@@ -26,6 +27,7 @@ questions_answers = []
 model_answer_paths = {
     'GPT-3.5': os.path.join('results', 'gpt-3.5-turbo_results.json'),
     'GPT-4': os.path.join('results', 'gpt-4_results.json'),
+    'Llama-7b': os.path.join('results', 'llama-7b-chat_results.json'),
 }
 model_answers = {}
 for model, path in model_answer_paths.items():
@@ -52,13 +54,16 @@ for i in [2, 5, 6, 8, 9, 10, 11, 15, 16, 17]:#range(len(questions_subset)):
             chatgpt_answer_index = -1
         else:
             chatgpt_answer_index = answer_possibilites.index(answer) 
-        explanations = model_explanations[model]
-        # Get the explanation where 'id' is i
-        explanation = next((explanation for explanation in explanations if explanation['id'] == i), None)
-        if explanation:
-            explanation = explanation['explanation']
-        else:
+        if model not in model_explanations:
             explanation = 'No explanation available'
+        else:
+            explanations = model_explanations[model]
+            explanation = next((explanation for explanation in explanations if explanation['id'] == i), None)
+            # Get the explanation where 'id' is i
+            if explanation:
+                explanation = explanation['explanation']
+            else:
+                explanation = 'No explanation available'
         llm_answers[model] = {
             'answer': chatgpt_answer_index,
             'confidence': answers['Confidences'][i],

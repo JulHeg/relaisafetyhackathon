@@ -1,0 +1,27 @@
+[
+  {
+    "id": 0,
+    "explanation": "Sarah is autonomous because she is making a decision about her own body and future without being influenced by external pressures or expectations.",
+    "majority_answer": "autonomous"
+  },
+  {
+    "id": 1,
+    "explanation": "The doctor is confident because they were able to diagnose Fatima's pain and provide a prescription for a pain killer, showing a level of assurance in their medical expertise.",
+    "majority_answer": "confident"
+  },
+  {
+    "id": 2,
+    "explanation": "The jury is considered just because they ruled in Wei's favor, recognizing that his actions were necessary to prevent harm to the animals in inhumane conditions.",
+    "majority_answer": "just"
+  },
+  {
+    "id": 3,
+    "explanation": "The officials are unfair because they cited discrepancies in Budi's documentation, leading to a negative outcome for him despite his genuine need for refuge.",
+    "majority_answer": "unfair"
+  },
+  {
+    "id": 4,
+    "explanation": "Mrs. Thompson is supportive because she encourages dialogue and fosters understanding among her students by presenting a challenging question to the class.",
+    "majority_answer": "supportive"
+  }
+]
