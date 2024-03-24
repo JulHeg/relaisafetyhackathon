@@ -13,7 +13,7 @@ st.markdown(
     """
     <style>
         section[data-testid="stSidebar"] {
-            width: 400px !important; # Set the width to your desired value
+            width: 300px !important; # Set the width to your desired value
         }
         a[data-testid="stPageLink-NavLink"] {
             
@@ -70,6 +70,14 @@ st.markdown(
             font-weight: 600;
             color: black !important;
         }
+        .st-emotion-cache-1r4qj8v {
+            color: black;
+        }
+        h1 {
+            color: black;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+}
     </style>
     """,
     unsafe_allow_html=True,
@@ -84,19 +92,43 @@ st.markdown(
 #     'Select the datasets you want to try out:',
 #     ['Social-IQ'],
 #     index=0)
-st.write(
-"""Welcome to MindMatch, a place where you can try out AI benchmarks and compare your results with those from popular large language models. This tool offers a simple way to get hands-on experience with AI, allowing you to see how these technologies perform compared to your own skills.
 
-The app is straightforward, giving everyone, regardless of their expertise in AI, a chance to engage with and understand the capabilities of modern artificial intelligence. Through direct interaction, you can measure your answers against AI responses, providing insight into the current state of AI development.
-
-It's an interesting opportunity to not only challenge the AI but also to challenge yourself, all while maintaining a modest level of enthusiasm. Whether you're curious about AI's abilities or just looking for a unique experience, this web app serves as a window into the advancements of artificial intelligence.
-
-Note that the question presented here are from real LLM Benchmarks that usually get crowdsourced questions and answers. They can sometimes be tricky or ambiguous.
+st.write("""
+![Static Badge](https://img.shields.io/badge/VIEW%3A-GitHub_Repository-black?style=flat&logo=GitHub&logoColor=black&labelColor=white&link=https%3A%2F%2Fgithub.com%2FJulHeg%2Frelaisafetyhackathon)
+[![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2FJulHeg%2Frelaisafetyhackathon&label=Visitors%3A&labelColor=%23000000&countColor=%23ffffff&style=flat&labelStyle=upper)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2FJulHeg%2Frelaisafetyhackathon)
 """)
-# Center this
 
-with st.container(border=True):
-    st.page_link("pages/SocialIQ.py", label="   Start Quiz", icon="🧪")
+# Introduction and description
+st.markdown('''
+Welcome to the AI & Human Quiz Challenge! This platform allows users to test their knowledge and reasoning skills against leading Language Models and AI systems. Whether you're curious about the latest in AI or just want to challenge yourself, you're in the right place.
+''')
+
+
+st.markdown("""
+## How It Works
+<ol>
+    <li>Browse available quizzes from the sidebar.</li>
+    <li>Select a quiz to see a brief explanation, including its scope and how to interpret your scores.</li>
+    <li>Take the quiz and instantly see how you fared compared to both peers and AI.</li>
+    <li>Navigate back to this page at any time to explore other quizzes.</li>
+</ol>
+""", unsafe_allow_html=True)
+
+st.markdown('''
+## Contributors
+This project was made possible thanks to the dedication and hard work of our team (in alphabetical order):
+
+- Gabriel Hamalwa
+- Heather Dyett
+- Hillary Hauger
+- Jannes Elstner
+- Julius Hege
+- Richard Schwank
+
+We appreciate the community's support and feedback to improve this platform. If you have any suggestions or wish to 
+contribute, please visit our GitHub repository.
+
+''')
 
 st.sidebar.write("Done as part of the 2024 relAI Safety hackathon!")
 st.sidebar.image(os.path.join('src', 'frontend', 'relai.png'), width=200)
