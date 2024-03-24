@@ -4,7 +4,7 @@ import os
 import json
 import random
     
-st.set_page_config(page_title='MindMatch', page_icon='🧪', layout="centered", menu_items=None, initial_sidebar_state='collapsed')
+st.set_page_config(page_title='MindMatch', page_icon='🧪', layout="centered", menu_items=None)
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     st.image(os.path.join('src', 'frontend', 'MindMatch-Logo_Horizontal.png'), width=350)
