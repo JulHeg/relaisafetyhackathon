@@ -2,7 +2,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import os
 import json
-import random
+import time
     
 st.set_page_config(page_title='MindMatch', page_icon='🧪', layout="centered", menu_items=None)
 
@@ -24,32 +24,47 @@ with open(random_subset_label_path) as f:
     questions_labels = f.readlines()
 questions_answers = []
 model_answer_paths = {
+    'GPT-3.5': os.path.join('results', 'gpt-3.5-turbo_results.json'),
     'GPT-4': os.path.join('results', 'gpt-4_results.json'),
-    'GPT-3.5': os.path.join('results', 'gpt-3.5-turbo_results.json')
 }
 model_answers = {}
 for model, path in model_answer_paths.items():
     with open(path) as f:
         model_answers[model] = json.load(f)
+        
+model_explanation_paths = {
+    'GPT-3.5': os.path.join('results', 'gpt-3.5-turbo_explanations.json'),
+    'GPT-4': os.path.join('results', 'gpt-4_explanations.json'),
+}
+model_explanations = {}
+for model, path in model_explanation_paths.items():
+    with open(path) as f:
+        model_explanations[model] = json.load(f)
 
 
-for i in range(len(questions_subset)):
+for i in [2, 5, 6, 8, 9, 10, 11, 15, 16, 17]:#range(len(questions_subset)):
     question = questions_subset[i]
     llm_answers = {}
     answer_possibilites = [question['answerA'], question['answerB'], question['answerC']]
     for model, answers in model_answers.items():
         answer = answers['Majority Votes Per Group'][i]
         if answer not in answer_possibilites:
-            
-            chatgpt_answer_index = len(answer_possibilites)
+            chatgpt_answer_index = -1
         else:
             chatgpt_answer_index = answer_possibilites.index(answer) 
+        explanations = model_explanations[model]
+        # Get the explanation where 'id' is i
+        explanation = next((explanation for explanation in explanations if explanation['id'] == i), None)
+        if explanation:
+            explanation = explanation['explanation']
+        else:
+            explanation = 'No explanation available'
         llm_answers[model] = {
             'answer': chatgpt_answer_index,
             'confidence': answers['Confidences'][i],
-                'explanation': 'Answer elaboration B'
+                'explanation': explanation
         }
-    question_text = " ".join([question['context'], question['context_2'], question['context_3'], question['question']])
+    question_text = " ".join([question['context'], question['question']])
     qa = {
         'question': question_text,
         'answers': answer_possibilites,
@@ -64,7 +79,20 @@ question_count = len(questions_answers)
 if 'answers_given' not in st.session_state:
     st.session_state.answers_given = []
 if 'question_index' not in st.session_state:
-    st.session_state.question_index = 0
+    st.session_state.question_index = -1
+    
+def stream_text(text):
+    time.sleep(1.3)
+    for word in text.split(" "):
+        yield word + " "
+        time.sleep(0.02)
+
+if st.session_state.question_index == -1:
+    st.write("Welcome to the Social-IQ Benchmark! This benchmark is designed to test the social intelligence of language models by presenting them with a series of social scenarios and questions. Here you can try it yourself and compare your answers with those of different popular language models. You will be asked to choose the most appropriate response to each scenario.")
+    next = st.button('Start the quiz', key=f'next_{st.session_state.question_index}')
+    if next:
+        st.session_state.question_index += 1
+        st.rerun()  
 
 for i, qa in enumerate(questions_answers):
     # If one of the previous questions has not been answered, continue to the next question
@@ -90,6 +118,7 @@ for i, qa in enumerate(questions_answers):
         # Disable the button after submission
         if option == correct_answer:
             st.write("Correct!")
+            st.balloons()
         else:
             st.write(f"Incorrect answer: {correct_answer}")
         
@@ -102,6 +131,7 @@ for i, qa in enumerate(questions_answers):
             with st.expander(f"{model} answer: {given_answer} (Confidence: {int(confidence*100)}%)", expanded=False):
                 with st.chat_message(model, avatar=model_images[model]):
                     st.write(model_answer['explanation'])
+                    # st.write_stream(stream_text(model_answer['explanation'])) too buggy
         next = st.button('Next', key=f'next_{i}')   
         if next:
             # Update to remove the old question
@@ -122,22 +152,36 @@ if st.session_state.question_index == question_count:
     
     # Calculate the accuracy of all the LLMs
     llms_correct_answers = {}
+    llms_nonanswers = {}
+    llms = list(model_answers.keys())
+    for model in llms:
+        llms_correct_answers[model] = 0
+        llms_nonanswers[model] = 0
+    print(questions_answers)
     for qa in questions_answers:
         for model, model_answer in qa['llm_answers'].items():
-            if model not in llms_correct_answers:
-                llms_correct_answers[model] = 0
             if model_answer['answer'] == qa['correct_answer']:
                 llms_correct_answers[model] += 1
-                
+            if model_answer['answer'] == -1:
+                llms_nonanswers[model] += 1
+    # print(llms_nonanswers)
     # Plot a bar chart of the accuracy of all the LLMs and the user
-    user_accuracy = correct_answers / len(questions_answers)
-    llms_accuracy = {model: correct_answers / len(questions_answers) for model, correct_answers in llms_correct_answers.items()}
-    llms_accuracy['User'] = user_accuracy
-    plt.style.use('seaborn-darkgrid')
+    # user_accuracy = correct_answers / len(questions_answers)
+    # llms_accuracy = {model: correct_answers / len(questions_answers) for model, correct_answers in llms_correct_answers.items()}
+    # llms_accuracy['User'] = user_accuracy
+    # plt.style.use('seaborn-darkgrid')
     fig, ax = plt.subplots()
 
-    # Create the bar chart
-    bars = ax.bar(llms_accuracy.keys(), llms_accuracy.values(), color='skyblue')
+    list_of_accurate_responses = [correct_answers] + [llms_correct_answers[model] for model in llms]
+    list_of_nonanswers = [0] + [llms_nonanswers[model] for model in llms]
+    # Add them element-wise
+    list_of_accurate_or_nonresponses = [sum(x) for x in zip(list_of_accurate_responses, list_of_nonanswers)]
+    print(list_of_accurate_responses)
+    print(list_of_accurate_or_nonresponses)
+    #bars = ax.bar(llms_accuracy.keys(), llms_accuracy.values(), color='skyblue')
+    bars = ax.bar(['You'] + llms, list_of_accurate_or_nonresponses, color='#e6007e')
+    bars_nonanswers = ax.bar(['You'] + llms, list_of_accurate_responses, color='#12a19a')
+    # Plot non-answers above the bars
 
     # Set the title and labels
     ax.set_ylabel('Accuracy', fontsize=12)
@@ -145,9 +189,6 @@ if st.session_state.question_index == question_count:
 
     # Improve readability of x-axis labels
     plt.xticks(rotation=45, ha='right')
-
-    # Set the y-axis limits
-    ax.set_ylim(0, 1)
 
     # Add value labels on top of each bar
     for bar in bars:
@@ -171,10 +212,10 @@ if st.session_state.question_index == question_count:
     # Add a title and labels
     plt.title('Accuracy Comparison', fontsize=16, fontweight='bold')
     plt.xlabel('Models', fontsize=12)
-    plt.ylabel('Accuracy', fontsize=12)
+    plt.ylabel('Number of correct responses', fontsize=12)
 
     # Add a legend
-    ax.legend(['Accuracy'], loc='upper right', fontsize=10)
+    ax.legend(['Did not answer', 'Accurate Answer'], loc='lower right', fontsize=10)
 
     # Adjust the layout
     plt.tight_layout()
