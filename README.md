@@ -23,7 +23,7 @@ To get started with MindMatch, follow these steps:
 
 1. Clone the repository to your local machine.
 2. Install the required dependencies by running `pip install -r requirements.txt`.
-3. Run the application using Streamlit with the command `streamlit run your_app.py`.
+3. Run the application using Streamlit with the command `streamlit run src/frontend/Home.py`.
 
 ## Contributions
 
