@@ -35,16 +35,15 @@
         "answerB": "they disappoint parents",
         "answerC": "they upset parents"
     },
-
-    {"context": "Quinn wanted to help me clean my room up because it was so messy.",
-    "context_2": "My room was messy so Quinn wanted to help me clean my room up.",
-    "context_3": "My room was not clean so Quinn decided to help me clean up.",
-     "question": "What will Quinn want to do next?",
-    "answerA": "Eat messy snacks",
-    "answerB": "help out a friend",
-    "answerC": "Pick up the dirty clothes"}
-
-
+    {
+        "context": "Quinn wanted to help me clean my room up because it was so messy.",
+        "context_2": "My room was messy so Quinn wanted to help me clean my room up.",
+        "context_3": "My room was not clean so Quinn decided to help me clean up.",
+        "question": "What will Quinn want to do next?",
+        "answerA": "Eat messy snacks",
+        "answerB": "help out a friend",
+        "answerC": "Pick up the dirty clothes"
+    },
     {
         "context": "Sydney got an urgent call about a crime in the middle of the night.",
         "context_2": "An urgent call about a crime woke Sydney in the middle of the night.",
