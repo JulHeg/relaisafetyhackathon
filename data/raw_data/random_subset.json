@@ -31,7 +31,8 @@
      "question": "What will Quinn want to do next?",
     "answerA": "Eat messy snacks",
     "answerB": "help out a friend",
-    "answerC": "Pick up the dirty clothes"}
+    "answerC": "Pick up the dirty clothes"
+    },
     {
         "context": "Sydney got an urgent call about a crime in the middle of the night.",
         "question": "How would you describe Sydney?",

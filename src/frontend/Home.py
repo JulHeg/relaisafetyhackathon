@@ -52,5 +52,5 @@ It's an interesting opportunity to not only challenge the AI but also to challen
 with st.container(border=True):
     st.page_link("pages/SocialIQ.py", label="   Start Quiz", icon="🧪")
 
-st.write("Done as part of the 2024 relAI Safety hackathon!")
-st.image(os.path.join('src', 'frontend', 'relai.png'), width=200)
+st.sidebar.write("Done as part of the 2024 relAI Safety hackathon!")
+st.sidebar.image(os.path.join('src', 'frontend', 'relai.png'), width=200)
