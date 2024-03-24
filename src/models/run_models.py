@@ -58,10 +58,10 @@ def get_response(prompt):
     else:
         NotImplementedError(f"Model {args.model} not implemented")
 
-with open('data/random_subset_rephrased_combined.json') as file:
+with open('../../data/random_subset_rephrased_combined.json') as file:
     dataset = json.load(file)
 
-with open('data/random_subset_rephrased_combined.lst', 'r') as file:
+with open('../../data/random_subset_rephrased_combined.lst', 'r') as file:
     correct_labels = [int(line.strip()) for line in file.readlines()]
 
 results = []
