@@ -15,11 +15,11 @@ args = parser.parse_args()
 
 load_dotenv()
 
-# claude_api_key = os.environ.get('CLAUDE_API_KEY')
-# openai_api_key = os.environ.get('OpenAI_API_KEY')
+claude_api_key = os.environ.get('CLAUDE_API_KEY')
+openai_api_key = os.environ.get('OpenAI_API_KEY')
 
-openai_client = openai.OpenAI(api_key='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')
-anthropic_client = None#anthropic.Anthropic(api_key=claude_api_key)
+openai_client = openai.OpenAI(api_key=openai_api_key)
+anthropic_client = anthropic.Anthropic(api_key=claude_api_key)
 print("APIs initialized")
 @retry(
     wait=wait_fixed(10),  # Wait 60 seconds before retrying

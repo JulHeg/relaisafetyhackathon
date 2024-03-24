@@ -13,12 +13,11 @@ parser.add_argument('--model', type=str, choices=['gpt-4', 'gpt-3.5-turbo'], req
 args = parser.parse_args()
 load_dotenv()
 
-# claude_api_key = os.environ.get('CLAUDE_API_KEY')
-# openai_api_key = os.environ.get('OPENAI_API_KEY')
+claude_api_key = os.environ.get('CLAUDE_API_KEY')
+openai_api_key = os.environ.get('OPENAI_API_KEY')
 
-# openai_client = openai.OpenAI(api_key=openai_api_key)
-openai_client = openai.OpenAI(api_key='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')
-anthropic_client = None#anthropic.Anthropic(api_key=claude_api_key)
+openai_client = openai.OpenAI(api_key=openai_api_key)
+anthropic_client = anthropic.Anthropic(api_key=claude_api_key)
 
 @retry(
     wait=wait_fixed(5),  # Wait 60 seconds before retrying
