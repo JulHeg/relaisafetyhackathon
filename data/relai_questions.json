@@ -3,7 +3,7 @@
         "context": "In a small town, Sarah having been trapped in a toxic relationship with Mark discovers she's pregnant. Mark abandons her, leaving Sarah alone to grapple with impending motherhood. She's relieved to be free from the relationship,however is now facing a dilemma. With no support and financial strain, she wants to have an abortion, but she feels guilty under the weight of societal pressure labeling her decision as morally wrong. keeps the baby and will raise it herself",
         "question": "Sarah is",
         "answerA": "sad",
-        "answerB": "aggressive",
+        "answerB": "caring",
         "answerC": "annoying",
         "answerD": "confident",
         "answerE": "autonomous"
@@ -13,24 +13,24 @@
         "question": "The doctor is",
         "answerA": "emotionally intelligent",
         "answerB": "confident",
-        "answerC": "caring",
+        "answerC": "arrogant",
         "answerD": "strong",
-        "answerE": "assertive"
+        "answerE": "busy"
     },
     {
         "context": "Wei, a passionate animal rights activist, couldn't bear the sight of the suffering animals in the cramped confines of a factory farm. With determination in his heart, he clandestinely rescued several unwell animals, nursing them back to health in his small sanctuary. However, despite the farm's flagrant violation of animal protection laws,Wei soon found himself facing prosecution for trespassing and theft. After an arduous legal battle, the court ruled in Wei's favour. His actions were necessary to prevent further harm to the animals in these inhumane conditions.",
         "question": "The jury is ",
-        "answerA": "annoying",
-        "answerB": "dependent",
-        "answerC": "angry",
-        "answerD": "bored",
+        "answerA": "just",
+        "answerB": "bored",
+        "answerC": "unfair",
+        "answerD": "assertive",
         "answerE": "weak"
     },
     {
         "context": "Seated in the asylum office, Budi's gaze flickered between the officials and the worn photograph of his family. Having carefully orchestrated his journey to reach this country, he pinned his dreams on the possibility of refuge, knowing that his cousin's presence here offered a glimmer of familiarity and support amidst the unknown. This decision would shape the future of those he held most dear. Finally, the officials cited discrepancies in his documentation, leaving Budi to confront the bitter reality of an uncertain future, his dreams of safety slipping through the cracks of burocracy.",
         "question": "The officials are ",
-        "answerA": "fulfilled",
-        "answerB": "aggressive",
+        "answerA": "just",
+        "answerB": "unfair",
         "answerC": "assertive",
         "answerD": "bitter",
         "answerE": "happy"

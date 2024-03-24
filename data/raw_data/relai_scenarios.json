@@ -11,7 +11,7 @@
  "wasn’t sure what could be causing the pain and referred {him/her} to another doctor."]
 },
 {"gender": ["male","female"],
-"adjectives":  ["confident", "assertive", "emotionally intelligent", "strong","bored","tired", "passive","sad", "angry", "arrogant", "dependent", "annoying", "weak"] ,
+"adjectives":  ["unfair","confident", "assertive","just", "emotionally intelligent", "strong","bored","tired", "passive","sad", "angry", "arrogant",  "annoying", "weak"] ,
 "female_name": ["Sarah", "Amina", "Yuki", "Aisha", "Fatima"],
  "male_name": ["Jamal","Oliver","Wei","Budi","Mohammed"],
  "scenarios": ["ruled in the farm's favour. Animals are legally classified as property and it is a crime to steal them.",
@@ -20,7 +20,7 @@
     ]
 },
 {"gender": ["male","female"],
-"adjectives":  ["friendly", "happy", "caring", "confident", "assertive", "fulfilled", "bitter","cheery", "strong", "bored", "busy", "tired", "passive", "aggressive", "sad", "angry", "arrogant","annoying", "weak"] , 
+"adjectives":  ["unfair","friendly", "just", "happy", "caring", "confident", "assertive", "fulfilled", "bitter","cheery", "strong", "bored", "busy", "tired", "passive", "aggressive", "sad", "angry", "arrogant","annoying", "weak"] , 
 "female_name": ["Sarah", "Amina", "Yuki", "Aisha", "Fatima"],
  "male_name": ["Jamal","Oliver","Wei","Budi","Mohammed"],
  "scenarios": ["turned down {his/her} application, as {he/she} had travelled through another safe country to get here.",
