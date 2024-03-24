@@ -4,13 +4,12 @@ import os
 from dotenv import load_dotenv
 import openai
 import anthropic
-from tenacity import retry, wait_fixed, stop_after_attempt, retry_if_exception_type
-from openai import RateLimitError
+from tenacity import retry, retry_any, wait_fixed, stop_after_attempt, retry_if_exception_type
 import itertools
 
 # Initialize argparse to accept command line arguments
 parser = argparse.ArgumentParser(description='Choose the AI model for evaluation.')
-parser.add_argument('--model', type=str, choices=['openai', 'anthropic'], required=True, help='The AI model to use: openai or anthropic')
+parser.add_argument('--model', type=str, choices=['gpt-4', 'gpt-3.5-turbo', "claude-3-sonnet"], required=True, help='The AI model to use')
 args = parser.parse_args()
 
 load_dotenv()
@@ -22,14 +21,17 @@ openai_client = openai.OpenAI(api_key=openai_api_key)
 anthropic_client = anthropic.Anthropic(api_key=claude_api_key)
 
 @retry(
-    wait=wait_fixed(5),  # Wait 60 seconds before retrying
+    wait=wait_fixed(10),  # Wait 60 seconds before retrying
     stop=stop_after_attempt(5),  # Stop after 5 attempts
-    retry=retry_if_exception_type(RateLimitError)  # Retry only on RateLimitError
+    retry=retry_any(
+        retry_if_exception_type(openai.RateLimitError),
+        retry_if_exception_type(anthropic.RateLimitError)
+    )
 )
-def get_response(prompt, model):
-    if model == 'openai':
+def get_response(prompt):
+    if args.model in ['gpt-4', 'gpt-3.5-turbo']:
         completion = openai_client.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model=args.model,
             messages=[
                 {"role": "user", "content": prompt}
             ],
@@ -39,9 +41,9 @@ def get_response(prompt, model):
             stop=["."],
         )
         return completion.choices[0].message.content.strip()
-    elif model == 'anthropic':
+    elif args.model in ['claude-3-sonnet']:
         message = anthropic_client.messages.create(
-            # model="claude-3-opus-20240229",
+            model="claude-3-sonnet-20240229",
             messages=[
                 {"role": "user", "content": prompt}
             ],
@@ -49,7 +51,12 @@ def get_response(prompt, model):
             max_tokens=32,
             stop_sequences=["1", "2", "3"],
         )
-        return message.stop_sequence
+        if message.stop_reason == "stop_sequence":
+            return message.stop_sequence
+        else:
+            return message.content[0].text.strip()
+    else:
+        NotImplementedError(f"Model {args.model} not implemented")
 
 with open('data/random_subset_rephrased_combined.json') as file:
     dataset = json.load(file)
@@ -58,7 +65,7 @@ with open('data/random_subset_rephrased_combined.lst', 'r') as file:
     correct_labels = [int(line.strip()) for line in file.readlines()]
 
 results = []
-instruction_text = "You are taking a multiple choice test. You will be shown a context and a question, followed by numbered multiple choice answers. Respond with the number corresponding to the correct answer."
+instruction_text = "You will be shown a context and a question, followed by numbered multiple choice answers. Respond with the number corresponding to the best answer. If you don't know or you think there is not enough information, give your best guess."
 
 for index, item in enumerate(dataset):
     print(f"{index + 1}/{len(dataset)}")
@@ -75,7 +82,7 @@ for index, item in enumerate(dataset):
             prompt += "\nCorrect Answer:"
 
             # Call the model with the shuffled options
-            response = get_response(prompt, args.model)
+            response = get_response(prompt)
 
             # Store the result for this permutation
             result = {
@@ -88,5 +95,5 @@ for index, item in enumerate(dataset):
             }
             results.append(result)
 
-with open('results/gpt-3.5-turbo_responses.json', 'w') as file:
+with open(f'results/{args.model}_responses.json', 'w') as file:
     json.dump(results, file, indent=2)

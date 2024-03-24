@@ -1,0 +1,102 @@
+[
+  {
+    "id": 0,
+    "explanation": "Jordan reproduced his idea in the book to write it down and keep track of it forever, as stated in the context. Therefore, the correct answer is 2. \"write the idea down\".",
+    "majority_answer": "write the idea down"
+  },
+  {
+    "id": 1,
+    "explanation": "The context does not provide information on how others would feel as a result of Austin meeting the client's needs. However, it is reasonable to assume that others, such as Austin's colleagues or superiors, might feel happy because a client's satisfaction is generally a positive outcome in a business setting.",
+    "majority_answer": "happy"
+  },
+  {
+    "id": 2,
+    "explanation": "The context does not provide information on Cameron's feelings about climbing fences or his hunger. However, it does imply that he wanted to get home quickly since he climbed the fence quickly after the game. Therefore, we can infer that he likely felt he wanted to get home quickly.",
+    "majority_answer": "liked to get home quickly"
+  },
+  {
+    "id": 3,
+    "explanation": "The context implies that Sasha would likely feel upset after performing poorly on their tests due to fatigue. The other options are not feelings, but potential consequences or reactions from others.",
+    "majority_answer": "very upset"
+  },
+  {
+    "id": 4,
+    "explanation": "The context does not provide specific details on what Quinn will do next. However, since Quinn is showing a willingness to help clean a messy room, it can be inferred that Quinn is likely to continue helping out. Therefore, \"help out a friend\" is the best choice among the given options.",
+    "majority_answer": "help out a friend"
+  },
+  {
+    "id": 5,
+    "explanation": "The context implies that Sydney is likely a detective or someone who responds to crime scenes, as she received an urgent call about a crime in the middle of the night. The options \"worried\" and \"scared\" are assumptions about her emotional state, which is not provided in the context.",
+    "majority_answer": "a good detective"
+  },
+  {
+    "id": 6,
+    "explanation": "Alex is described as selfish because he took the money that a stranger dropped instead of giving it back. This shows a lack of consideration for others and a focus on his own gain.",
+    "majority_answer": "selfish"
+  },
+  {
+    "id": 7,
+    "explanation": "The context implies that Sasha has learned from their past experiences, so the action that Sasha needed to do before this was to learn.",
+    "majority_answer": "learn"
+  },
+  {
+    "id": 8,
+    "explanation": "Skylar would likely be grateful because Addison gave candy to her son and he enjoyed it. The context does not suggest any reason for Skylar to be angry.",
+    "majority_answer": "be grateful"
+  },
+  {
+    "id": 9,
+    "explanation": "The context suggests that Quinn and Sydney share jokes about their names, which implies a friendly, humorous relationship. Therefore, Sydney would likely feel \"humorous and fun-loving\".",
+    "majority_answer": "humorous and fun-loving"
+  },
+  {
+    "id": 10,
+    "explanation": "The context suggests that Sydney's attempt at scoring a goal was unsuccessful due to Kendall's quick action. This could potentially lead to Sydney feeling frustrated. The other options, being praised or congratulated, are less likely as they usually follow a successful action or achievement.",
+    "majority_answer": "get frustrated"
+  },
+  {
+    "id": 11,
+    "explanation": "The context does not provide any information about Jesse's feelings or experiences after the party. Therefore, it's impossible to accurately determine whether Jesse would feel horrible, ready, or tired afterwards.",
+    "majority_answer": null
+  },
+  {
+    "id": 12,
+    "explanation": "The context suggests that Quinn was providing Bailey with the best of everything, which implies a desire to improve Bailey's life or circumstances, most likely aligning with the idea of ensuring a better childhood. The other options suggest negative intentions which are not implied in the context.",
+    "majority_answer": "make sure Baliey had a better childhood"
+  },
+  {
+    "id": 13,
+    "explanation": "Kendall tilted Jan's head and went in for a kiss, which indicates that Kendall wanted to make out with Jan. The context does not provide information about Kendall's emotional state (jittery or excited), so the most direct interpretation is that Kendall's actions were intended to initiate a kiss.",
+    "majority_answer": "make out with Jan"
+  },
+  {
+    "id": 14,
+    "explanation": "The context does not provide information on how others would react to Bailey bringing dog toys to the park. Their feelings could vary based on personal preferences, attitudes towards dogs, or their relationship with Bailey. Therefore, it's not possible to accurately determine how others would feel.",
+    "majority_answer": null
+  },
+  {
+    "id": 15,
+    "explanation": "The phrase \"went hard or go home\" implies that Carson is someone who gives his all and takes risks rather than not trying at all. Therefore, he would feel like someone who puts in his all.",
+    "majority_answer": "someone who puts in his all"
+  },
+  {
+    "id": 16,
+    "explanation": "The context does not provide any information about Carson's intentions or plans after assisting the worker. Therefore, it's impossible to accurately determine what he will want to do next based on the given information.",
+    "majority_answer": null
+  },
+  {
+    "id": 17,
+    "explanation": "The most immediate action others would likely take after Riley hit a pole with the golf cart is to check for any damage. Fixing any damage would come after assessing it.",
+    "majority_answer": "would get out and check for any damage to the golf cart"
+  },
+  {
+    "id": 18,
+    "explanation": "Kendall would need to ask Tracy to pose before taking a picture to ensure that Tracy is ready for the photo. The other options are not necessary actions before taking a picture.",
+    "majority_answer": "needed to ask Tracy to pose"
+  },
+  {
+    "id": 19,
+    "explanation": "Austin would need to have some resources in order to provide for Bailey's children. This could include financial resources, time, or other forms of support. The other options, while they could potentially occur, are not necessary prerequisites to providing for the children.",
+    "majority_answer": "have some resources"
+  }
+]
