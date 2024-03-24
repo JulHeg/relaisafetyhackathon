@@ -1,0 +1,17 @@
+{
+    "Total Groups": 5,
+    "Majority Votes Per Group": [
+        "autonomous",
+        "confident",
+        "just",
+        "unfair",
+        "supportive"
+    ],
+    "Confidences": [
+        0.95,
+        0.5666666666666667,
+        0.9833333333333333,
+        0.55,
+        1.0
+    ]
+}
