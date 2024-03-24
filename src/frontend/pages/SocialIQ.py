@@ -12,7 +12,10 @@ st.sidebar.markdown("""The Social-IQ dataset stands as a pioneering benchmark ta
 Despite humans showcasing a high accuracy rate of 95.08% in reasoning about these social scenarios, current state-of-the-art computational models lag significantly. The benchmark encompasses wide array of real-world social interactions, from casual gatherings to more formal events, and providing a diverse set of questions aimed at probing different aspects of social intelligence.
 """)
 st.title('Social-IQ Benchmark')
-
+model_images = {
+    'GPT-4': os.path.join('src', 'frontend', 'gpt-4.jpg'),
+    'GPT-3.5': os.path.join('src', 'frontend', 'gpt-3.5.png')
+}
 random_subset_path = os.path.join('data', 'random_subset_rephrased_combined.json')
 random_subset_label_path = os.path.join('data', 'raw_data', 'random_subset_labels_rephrased.lst')
 with open(random_subset_path) as f:
@@ -97,7 +100,8 @@ for i, qa in enumerate(questions_answers):
                 given_answer = qa['answers'][model_answer['answer']]
             confidence = model_answer['confidence']
             with st.expander(f"{model} answer: {given_answer} (Confidence: {int(confidence*100)}%)", expanded=False):
-                st.write(model_answer['explanation'])
+                with st.chat_message(model, avatar=model_images[model]):
+                    st.write(model_answer['explanation'])
         next = st.button('Next', key=f'next_{i}')   
         if next:
             # Update to remove the old question
