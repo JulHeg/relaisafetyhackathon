@@ -42,7 +42,7 @@ for model, path in model_explanation_paths.items():
         model_explanations[model] = json.load(f)
 
 
-for i in range(len(questions_subset)):
+for i in [2, 5, 6, 8, 9, 10, 11, 15, 16, 17]:#range(len(questions_subset)):
     question = questions_subset[i]
     llm_answers = {}
     answer_possibilites = [question['answerA'], question['answerB'], question['answerC']]
@@ -50,7 +50,7 @@ for i in range(len(questions_subset)):
         answer = answers['Majority Votes Per Group'][i]
         if answer not in answer_possibilites:
             
-            chatgpt_answer_index = len(answer_possibilites)
+            chatgpt_answer_index = -1
         else:
             chatgpt_answer_index = answer_possibilites.index(answer) 
         explanations = model_explanations[model]
@@ -145,22 +145,36 @@ if st.session_state.question_index == question_count:
     
     # Calculate the accuracy of all the LLMs
     llms_correct_answers = {}
+    llms_nonanswers = {}
+    llms = list(model_answers.keys())
+    for model in llms:
+        llms_correct_answers[model] = 0
+        llms_nonanswers[model] = 0
+    print(questions_answers)
     for qa in questions_answers:
         for model, model_answer in qa['llm_answers'].items():
-            if model not in llms_correct_answers:
-                llms_correct_answers[model] = 0
             if model_answer['answer'] == qa['correct_answer']:
                 llms_correct_answers[model] += 1
-                
+            if model_answer['answer'] == -1:
+                llms_nonanswers[model] += 1
+    # print(llms_nonanswers)
     # Plot a bar chart of the accuracy of all the LLMs and the user
-    user_accuracy = correct_answers / len(questions_answers)
-    llms_accuracy = {model: correct_answers / len(questions_answers) for model, correct_answers in llms_correct_answers.items()}
-    llms_accuracy['User'] = user_accuracy
-    plt.style.use('seaborn-darkgrid')
+    # user_accuracy = correct_answers / len(questions_answers)
+    # llms_accuracy = {model: correct_answers / len(questions_answers) for model, correct_answers in llms_correct_answers.items()}
+    # llms_accuracy['User'] = user_accuracy
+    # plt.style.use('seaborn-darkgrid')
     fig, ax = plt.subplots()
 
-    # Create the bar chart
-    bars = ax.bar(llms_accuracy.keys(), llms_accuracy.values(), color='skyblue')
+    list_of_accurate_responses = [correct_answers] + [llms_correct_answers[model] for model in llms]
+    list_of_nonanswers = [0] + [llms_nonanswers[model] for model in llms]
+    # Add them element-wise
+    list_of_accurate_or_nonresponses = [sum(x) for x in zip(list_of_accurate_responses, list_of_nonanswers)]
+    print(list_of_accurate_responses)
+    print(list_of_accurate_or_nonresponses)
+    #bars = ax.bar(llms_accuracy.keys(), llms_accuracy.values(), color='skyblue')
+    bars = ax.bar(['You'] + llms, list_of_accurate_or_nonresponses, color='#e6007e')
+    bars_nonanswers = ax.bar(['You'] + llms, list_of_accurate_responses, color='#12a19a')
+    # Plot non-answers above the bars
 
     # Set the title and labels
     ax.set_ylabel('Accuracy', fontsize=12)
@@ -168,9 +182,6 @@ if st.session_state.question_index == question_count:
 
     # Improve readability of x-axis labels
     plt.xticks(rotation=45, ha='right')
-
-    # Set the y-axis limits
-    ax.set_ylim(0, 1)
 
     # Add value labels on top of each bar
     for bar in bars:
@@ -194,10 +205,10 @@ if st.session_state.question_index == question_count:
     # Add a title and labels
     plt.title('Accuracy Comparison', fontsize=16, fontweight='bold')
     plt.xlabel('Models', fontsize=12)
-    plt.ylabel('Accuracy', fontsize=12)
+    plt.ylabel('Number of correct responses', fontsize=12)
 
     # Add a legend
-    ax.legend(['Accuracy'], loc='upper right', fontsize=10)
+    ax.legend(['Did not answer', 'Accurate Answer'], loc='lower right', fontsize=10)
 
     # Adjust the layout
     plt.tight_layout()
