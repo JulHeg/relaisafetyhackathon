@@ -34,6 +34,42 @@ st.markdown(
             position: fixed;
             bottom: -50px;
         }
+        .st-emotion-cache-vk3wp9 {
+            background-color: rgb(255 255 255); 
+            border-right: 0.75px solid;
+            border-color: black;
+        }
+        .st-emotion-cache-1s3y5qe {
+            color: black;
+            border-bottom: 0.75px solid rgb(0 0 0 / 100%);
+        }
+        .st-emotion-cache-1oe5cao {
+            min-height: 70vh;
+        }
+        .st-emotion-cache-nziaof {
+            background-color: black;
+            display: block;
+        }
+        .st-emotion-cache-nziaof:hover {
+            background-color: white;
+            border: 0.5px solid black;
+            display:block
+        }
+        .st-emotion-cache-j7qwjs {
+        }
+        .st-emotion-cache-pkbazv {
+            display: block;
+            color: white;
+        }
+        .st-emotion-cache-pkbazv:active, .st-emotion-cache-pkbazv:visited, .st-emotion-cache-pkbazv:hover {
+            display: block;
+            color: black;
+        }
+        .st-emotion-cache-nziaof:active, .st-emotion-cache-nziaof:visited, .st-emotion-cache-nziaof:hover {
+            text-decoration: none;
+            font-weight: 600;
+            color: black !important;
+        }
     </style>
     """,
     unsafe_allow_html=True,
