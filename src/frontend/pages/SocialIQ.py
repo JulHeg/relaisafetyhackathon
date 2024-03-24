@@ -49,7 +49,6 @@ for i in [2, 5, 6, 8, 9, 10, 11, 15, 16, 17]:#range(len(questions_subset)):
     for model, answers in model_answers.items():
         answer = answers['Majority Votes Per Group'][i]
         if answer not in answer_possibilites:
-            
             chatgpt_answer_index = -1
         else:
             chatgpt_answer_index = answer_possibilites.index(answer) 
@@ -80,13 +79,20 @@ question_count = len(questions_answers)
 if 'answers_given' not in st.session_state:
     st.session_state.answers_given = []
 if 'question_index' not in st.session_state:
-    st.session_state.question_index = 0
+    st.session_state.question_index = -1
     
 def stream_text(text):
     time.sleep(1.3)
     for word in text.split(" "):
         yield word + " "
         time.sleep(0.02)
+
+if st.session_state.question_index == -1:
+    st.write("Welcome to the Social-IQ Benchmark! This benchmark is designed to test the social intelligence of language models by presenting them with a series of social scenarios and questions. Here you can try it yourself and compare your answers with those of different popular language models. You will be asked to choose the most appropriate response to each scenario.")
+    next = st.button('Start the quiz', key=f'next_{st.session_state.question_index}')
+    if next:
+        st.session_state.question_index += 1
+        st.rerun()  
 
 for i, qa in enumerate(questions_answers):
     # If one of the previous questions has not been answered, continue to the next question
@@ -112,6 +118,7 @@ for i, qa in enumerate(questions_answers):
         # Disable the button after submission
         if option == correct_answer:
             st.write("Correct!")
+            st.balloons()
         else:
             st.write(f"Incorrect answer: {correct_answer}")
         
