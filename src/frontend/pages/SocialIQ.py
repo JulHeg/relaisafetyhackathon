@@ -13,7 +13,7 @@ Despite humans showcasing a high accuracy rate of 95.08% in reasoning about thes
 """)
 st.title('Social-IQ Benchmark')
 
-random_subset_path = os.path.join('data', 'raw_data', 'random_subset.json')
+random_subset_path = os.path.join('data', 'random_subset_rephrased_combined.json')
 random_subset_label_path = os.path.join('data', 'raw_data', 'random_subset_labels_rephrased.lst')
 with open(random_subset_path) as f:
     questions_subset = json.load(f)
@@ -37,8 +37,7 @@ for i in range(len(questions_subset)):
     for model, answers in model_answers.items():
         answer = answers['Majority Votes Per Group'][i]
         if answer not in answer_possibilites:
-            print(f"Answer not found: {answer}")
-            print(answers['Majority Votes Per Group'][i])
+            
             chatgpt_answer_index = len(answer_possibilites)
         else:
             chatgpt_answer_index = answer_possibilites.index(answer) 
@@ -47,13 +46,13 @@ for i in range(len(questions_subset)):
             'confidence': answers['Confidences'][i],
                 'explanation': 'Answer elaboration B'
         }
+    question_text = " ".join([question['context'], question['context_2'], question['context_3'], question['question']])
     qa = {
-        'question': question['context'] + ' ' + question['question'],
+        'question': question_text,
         'answers': answer_possibilites,
         'correct_answer': int(questions_labels[i].strip()) - 1,
         'llm_answers': llm_answers
     }
-    #print(qa)
     questions_answers.append(qa)
 question_count = len(questions_answers)
 
@@ -72,7 +71,7 @@ for i, qa in enumerate(questions_answers):
     st.subheader(f'Question {i+1}/{question_count}: ' + qa['question'])
     option = st.radio(
         "Choose your answer:",
-        qa['answers'] + ["Not enough information"],
+        qa['answers'],
         key=f'question_{i}',
         disabled=len(st.session_state.answers_given) > i
     )
@@ -159,7 +158,22 @@ if st.session_state.question_index == question_count:
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
 
+    # Customize the plot
+    ax.set_facecolor('#f2f2f2')  # Set background color
+    ax.grid(axis='y', linestyle='--', alpha=0.5)  # Add horizontal grid lines
+    plt.xticks(fontsize=10)  # Adjust x-axis tick font size
+    plt.yticks(fontsize=10)  # Adjust y-axis tick font size
+
+    # Add a title and labels
+    plt.title('Accuracy Comparison', fontsize=16, fontweight='bold')
+    plt.xlabel('Models', fontsize=12)
+    plt.ylabel('Accuracy', fontsize=12)
+
+    # Add a legend
+    ax.legend(['Accuracy'], loc='upper right', fontsize=10)
+
+    # Adjust the layout
+    plt.tight_layout()
+
     # Display the plot
     st.pyplot(fig)
-    st.write("The bar chart above shows the accuracy of the user and the LLMs on the Social-IQ benchmark. Note that the question presented here are from real LLM Benchmarks that usually get crowdsourced questions and answers. They can sometimes be tricky or ambiguous.")
-    st.page_link("Home.py", label="Go back to the main page", icon="🧪")
