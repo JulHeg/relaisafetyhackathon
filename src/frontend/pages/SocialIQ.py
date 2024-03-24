@@ -2,7 +2,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import os
 import json
-import random
+import time
     
 st.set_page_config(page_title='MindMatch', page_icon='🧪', layout="centered", menu_items=None, initial_sidebar_state='collapsed')
 
@@ -24,13 +24,22 @@ with open(random_subset_label_path) as f:
     questions_labels = f.readlines()
 questions_answers = []
 model_answer_paths = {
+    'GPT-3.5': os.path.join('results', 'gpt-3.5-turbo_results.json'),
     'GPT-4': os.path.join('results', 'gpt-4_results.json'),
-    'GPT-3.5': os.path.join('results', 'gpt-3.5-turbo_results.json')
 }
 model_answers = {}
 for model, path in model_answer_paths.items():
     with open(path) as f:
         model_answers[model] = json.load(f)
+        
+model_explanation_paths = {
+    'GPT-3.5': os.path.join('results', 'gpt-3.5-turbo_explanations.json'),
+    'GPT-4': os.path.join('results', 'gpt-4_explanations.json'),
+}
+model_explanations = {}
+for model, path in model_explanation_paths.items():
+    with open(path) as f:
+        model_explanations[model] = json.load(f)
 
 
 for i in range(len(questions_subset)):
@@ -44,12 +53,19 @@ for i in range(len(questions_subset)):
             chatgpt_answer_index = len(answer_possibilites)
         else:
             chatgpt_answer_index = answer_possibilites.index(answer) 
+        explanations = model_explanations[model]
+        # Get the explanation where 'id' is i
+        explanation = next((explanation for explanation in explanations if explanation['id'] == i), None)
+        if explanation:
+            explanation = explanation['explanation']
+        else:
+            explanation = 'No explanation available'
         llm_answers[model] = {
             'answer': chatgpt_answer_index,
             'confidence': answers['Confidences'][i],
-                'explanation': 'Answer elaboration B'
+                'explanation': explanation
         }
-    question_text = " ".join([question['context'], question['context_2'], question['context_3'], question['question']])
+    question_text = " ".join([question['context'], question['question']])
     qa = {
         'question': question_text,
         'answers': answer_possibilites,
@@ -65,6 +81,12 @@ if 'answers_given' not in st.session_state:
     st.session_state.answers_given = []
 if 'question_index' not in st.session_state:
     st.session_state.question_index = 0
+    
+def stream_text(text):
+    time.sleep(1.3)
+    for word in text.split(" "):
+        yield word + " "
+        time.sleep(0.02)
 
 for i, qa in enumerate(questions_answers):
     # If one of the previous questions has not been answered, continue to the next question
@@ -102,6 +124,7 @@ for i, qa in enumerate(questions_answers):
             with st.expander(f"{model} answer: {given_answer} (Confidence: {int(confidence*100)}%)", expanded=False):
                 with st.chat_message(model, avatar=model_images[model]):
                     st.write(model_answer['explanation'])
+                    # st.write_stream(stream_text(model_answer['explanation'])) too buggy
         next = st.button('Next', key=f'next_{i}')   
         if next:
             # Update to remove the old question
