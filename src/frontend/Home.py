@@ -4,7 +4,7 @@ import os
 import json
 import random
     
-st.set_page_config(page_title='MindMatch', page_icon='🧪', layout="centered", menu_items=None, initial_sidebar_state='collapsed')
+st.set_page_config(page_title='MindMatch', page_icon='🧪', layout="centered", menu_items=None)
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     st.image(os.path.join('src', 'frontend', 'MindMatch-Logo_Horizontal.png'), width=350)
@@ -13,7 +13,7 @@ st.markdown(
     """
     <style>
         section[data-testid="stSidebar"] {
-            width: 700px !important; # Set the width to your desired value
+            width: 400px !important; # Set the width to your desired value
         }
         a[data-testid="stPageLink-NavLink"] {
             
@@ -33,6 +33,42 @@ st.markdown(
         div[data-testid="stSidebarUserContent"] {
             position: fixed;
             bottom: -50px;
+        }
+        .st-emotion-cache-vk3wp9 {
+            background-color: rgb(255 255 255); 
+            border-right: 0.75px solid;
+            border-color: black;
+        }
+        .st-emotion-cache-1s3y5qe {
+            color: black;
+            border-bottom: 0.75px solid rgb(0 0 0 / 100%);
+        }
+        .st-emotion-cache-1oe5cao {
+            min-height: 70vh;
+        }
+        .st-emotion-cache-nziaof {
+            background-color: black;
+            display: block;
+        }
+        .st-emotion-cache-nziaof:hover {
+            background-color: white;
+            border: 0.5px solid black;
+            display:block
+        }
+        .st-emotion-cache-j7qwjs {
+        }
+        .st-emotion-cache-pkbazv {
+            display: block;
+            color: white;
+        }
+        .st-emotion-cache-pkbazv:active, .st-emotion-cache-pkbazv:visited, .st-emotion-cache-pkbazv:hover {
+            display: block;
+            color: black;
+        }
+        .st-emotion-cache-nziaof:active, .st-emotion-cache-nziaof:visited, .st-emotion-cache-nziaof:hover {
+            text-decoration: none;
+            font-weight: 600;
+            color: black !important;
         }
     </style>
     """,

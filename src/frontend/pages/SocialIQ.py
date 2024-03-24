@@ -4,7 +4,7 @@ import os
 import json
 import random
     
-st.set_page_config(page_title='MindMatch', page_icon='🧪', layout="centered", menu_items=None, initial_sidebar_state='collapsed')
+st.set_page_config(page_title='MindMatch', page_icon='🧪', layout="centered", menu_items=None)
 
 st.sidebar.image(os.path.join('src', 'frontend', 'MindMatch-Logo_Horizontal.png'), width=300)
 st.sidebar.markdown("""The Social-IQ dataset stands as a pioneering benchmark tailored for the training and assessment of socially intelligent technologies. Rooted in the recognition of social intelligence as a crucial component for intelligent systems to effectively interpret human intents and facilitate rich interactions, Social-IQ diverges from traditional numeric-based social modeling approaches by leveraging an unconstrained methodology.
