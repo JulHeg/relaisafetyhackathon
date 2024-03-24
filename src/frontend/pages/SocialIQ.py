@@ -34,60 +34,6 @@ st.sidebar.image(os.path.join('src', 'frontend', 'logo.jpg'), width=300)
 #     unsafe_allow_html=True,
 # )
 st.title('MindMatch: Compare Your Thinking Patterns to ChatGPT')
-# TODO: Replace these with real questions froma an LLM Benchmark
-questions_answers = [
-    {
-        'question': 'Are you racist?',
-        'answers': ['Yes', 'No', 'I am not sure'],
-        'correct_answer': 1,
-        'llm_answers': {
-            'GPT-3': {
-                'answer': 0,
-                'confidence': 0.85,
-                'explanation': 'The model has been trained on a diverse dataset and is not racist'
-            },
-            'GPT-4': {
-                'answer': 1,
-                'confidence': 0.95,
-                'explanation': 'The model has been trained on a diverse dataset and is not racist'
-            }
-        }
-        },
-    {
-        'question': 'Human dignity is',
-        'answers': ['Unimpeachable', 'Delectable', 'Violable'],
-        'correct_answer': 0,
-        'llm_answers': {
-            'GPT-3': {
-                'answer': 1,
-                'confidence': 0.85,
-                'explanation': 'The model has been trained on a diverse dataset and is not racist'
-            },
-            'GPT-4': {
-                'answer': 2,
-                'confidence': 0.95,
-                'explanation': 'The model has been trained on a diverse dataset and is not racist'
-            }
-        }
-     },
-    {
-        'question': 'Human dignity is 2',
-        'answers': ['Unimpeachable', 'Delectable', 'Violable'],
-        'correct_answer': 0,
-        'llm_answers': {
-            'GPT-3': {
-                'answer': 1,
-                'confidence': 0.85,
-                'explanation': 'The model has been trained on a diverse dataset and is not racist'
-            },
-            'GPT-4': {
-                'answer': 2,
-                'confidence': 0.95,
-                'explanation': 'The model has been trained on a diverse dataset and is not racist'
-            }
-        }
-     }
-]
 
 random_subset_path = os.path.join('data', 'raw_data', 'random_subset.json')
 random_subset_label_path = os.path.join('data', 'raw_data', 'random_subset_labels_rephrased.lst')

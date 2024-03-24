@@ -16,7 +16,7 @@ st.markdown(
             width: 700px !important; # Set the width to your desired value
         }
         a[data-testid="stPageLink-NavLink"] {
-            padding-left: 40%;
+            
             width: 100%;
         }
         .st-emotion-cache-8hkptd {
@@ -25,6 +25,10 @@ st.markdown(
         .st-emotion-cache-10fz3ls > p {
             font-size: 1.2rem;
             font-weight: 300;
+        }
+        a[data-testid="stPageLink-NavLink"] {
+            align-items: center;
+            justify-content: center;
         }
     </style>
     """,
