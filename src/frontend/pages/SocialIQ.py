@@ -96,7 +96,7 @@ with open(random_subset_path) as f:
 with open(random_subset_label_path) as f:
     questions_labels = f.readlines()
 questions_answers = []
-chatgpt_answers_path = os.path.join('results', 'results.json')
+chatgpt_answers_path = os.path.join('results', 'gpt-4_results.json')
 with open(chatgpt_answers_path) as f:
     chatgpt_answers = json.load(f)
 
