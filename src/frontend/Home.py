@@ -30,6 +30,10 @@ st.markdown(
             align-items: center;
             justify-content: center;
         }
+        div[data-testid="stSidebarUserContent"] {
+            position: fixed;
+            bottom: -50px;
+        }
     </style>
     """,
     unsafe_allow_html=True,
@@ -50,6 +54,8 @@ st.write(
 The app is straightforward, giving everyone, regardless of their expertise in AI, a chance to engage with and understand the capabilities of modern artificial intelligence. Through direct interaction, you can measure your answers against AI responses, providing insight into the current state of AI development.
 
 It's an interesting opportunity to not only challenge the AI but also to challenge yourself, all while maintaining a modest level of enthusiasm. Whether you're curious about AI's abilities or just looking for a unique experience, this web app serves as a window into the advancements of artificial intelligence.
+
+Note that the question presented here are from real LLM Benchmarks that usually get crowdsourced questions and answers. They can sometimes be tricky or ambiguous.
 """)
 # Center this
 

@@ -3,37 +3,15 @@ import matplotlib.pyplot as plt
 import os
 import json
 import random
-# from streamlit_extras.app_logo import add_logo
     
 st.set_page_config(page_title='MindMatch', page_icon='🧪', layout="centered", menu_items=None, initial_sidebar_state='collapsed')
-#add_logo(os.path.join('src', 'frontend', 'logo.jpg'))
 
-st.sidebar.image(os.path.join('src', 'frontend', 'logo.jpg'), width=300)
-# st.markdown(
-#         """
-#         <style>
-#             [data-testid="stSidebarNav"] {
-#                 background-image: url(/src/frontend/logo.jpg);
-#                 background-repeat: no-repeat;
-#                 padding-top: 120px;
-#                 background-position: 20px 20px;
-#             }
-#         </style>
-#         """,
-#         unsafe_allow_html=True,
-#     )
-# st.markdown(
-#     """
-#     <style>
-#         section[data-testid="stSidebar"] {
-#             width: 700px !important; # Set the width to your desired value
-#         }
-        
-#     </style>
-#     """,
-#     unsafe_allow_html=True,
-# )
-st.title('MindMatch: Compare Your Thinking Patterns to ChatGPT')
+st.sidebar.image(os.path.join('src', 'frontend', 'MindMatch-Logo_Horizontal.png'), width=300)
+st.sidebar.markdown("""The Social-IQ dataset stands as a pioneering benchmark tailored for the training and assessment of socially intelligent technologies. Rooted in the recognition of social intelligence as a crucial component for intelligent systems to effectively interpret human intents and facilitate rich interactions, Social-IQ diverges from traditional numeric-based social modeling approaches by leveraging an unconstrained methodology.
+
+Despite humans showcasing a high accuracy rate of 95.08% in reasoning about these social scenarios, current state-of-the-art computational models lag significantly. The benchmark encompasses wide array of real-world social interactions, from casual gatherings to more formal events, and providing a diverse set of questions aimed at probing different aspects of social intelligence.
+""")
+st.title('Social-IQ Benchmark')
 
 random_subset_path = os.path.join('data', 'raw_data', 'random_subset.json')
 random_subset_label_path = os.path.join('data', 'raw_data', 'random_subset_labels_rephrased.lst')
@@ -42,34 +20,40 @@ with open(random_subset_path) as f:
 with open(random_subset_label_path) as f:
     questions_labels = f.readlines()
 questions_answers = []
-chatgpt_answers_path = os.path.join('results', 'gpt-4_results.json')
-with open(chatgpt_answers_path) as f:
-    chatgpt_answers = json.load(f)
-
-
+model_answer_paths = {
+    'GPT-4': os.path.join('results', 'gpt-4_results.json'),
+    'GPT-3.5': os.path.join('results', 'gpt-3.5-turbo_results.json')
+}
+model_answers = {}
+for model, path in model_answer_paths.items():
+    with open(path) as f:
+        model_answers[model] = json.load(f)
 
 
 for i in range(len(questions_subset)):
     question = questions_subset[i]
-    chatgpt_answer = chatgpt_answers["Majority Votes Per Group"][i]
-    answers = [question['answerA'], question['answerB'], question['answerC']]
-    if chatgpt_answer not in answers:
-        chatgpt_answer_index = -1
-    else:
-        chatgpt_answer_index = answers.index(chatgpt_answer)
-    chatgpt_confidence = chatgpt_answers["Confidences"][i]
+    llm_answers = {}
+    answer_possibilites = [question['answerA'], question['answerB'], question['answerC']]
+    for model, answers in model_answers.items():
+        answer = answers['Majority Votes Per Group'][i]
+        if answer not in answer_possibilites:
+            print(f"Answer not found: {answer}")
+            print(answers['Majority Votes Per Group'][i])
+            chatgpt_answer_index = len(answer_possibilites)
+        else:
+            chatgpt_answer_index = answer_possibilites.index(answer) 
+        llm_answers[model] = {
+            'answer': chatgpt_answer_index,
+            'confidence': answers['Confidences'][i],
+                'explanation': 'Answer elaboration B'
+        }
     qa = {
         'question': question['context'] + ' ' + question['question'],
-        'answers': answers,
+        'answers': answer_possibilites,
         'correct_answer': int(questions_labels[i].strip()) - 1,
-        'llm_answers': {
-            'GPT-4': {
-                'answer': chatgpt_answer_index,
-                'confidence': chatgpt_confidence,
-                'explanation': 'Answer elaboration B'
-            }
-        }
+        'llm_answers': llm_answers
     }
+    #print(qa)
     questions_answers.append(qa)
 question_count = len(questions_answers)
 
@@ -77,24 +61,30 @@ question_count = len(questions_answers)
 
 if 'answers_given' not in st.session_state:
     st.session_state.answers_given = []
+if 'question_index' not in st.session_state:
+    st.session_state.question_index = 0
 
 for i, qa in enumerate(questions_answers):
     # If one of the previous questions has not been answered, continue to the next question
-    if i != len(st.session_state.answers_given):
+    if st.session_state.question_index != i:
         continue
         
     st.subheader(f'Question {i+1}/{question_count}: ' + qa['question'])
     option = st.radio(
         "Choose your answer:",
-        qa['answers'],
+        qa['answers'] + ["Not enough information"],
         key=f'question_{i}',
-        #disabled=st.session_state.answered_questions[i]
+        disabled=len(st.session_state.answers_given) > i
     )
     submitted = st.button('Check', key=f'submit_{i}', 
                           #disabled=st.session_state.answered_questions[i]
                           )
     correct_answer = qa['answers'][qa['correct_answer']]
     if submitted:
+        # Make a 'Next' button to go to the next question
+        st.session_state.answers_given.append(option)
+        st.rerun()
+    if len(st.session_state.answers_given) > i:
         # Disable the button after submission
         if option == correct_answer:
             st.write("Correct!")
@@ -102,21 +92,23 @@ for i, qa in enumerate(questions_answers):
             st.write(f"Incorrect answer: {correct_answer}")
         
         for model, model_answer in qa['llm_answers'].items():
-            given_answer = qa['answers'][model_answer['answer']]
+            if model_answer['answer'] == len(qa['answers']):
+                given_answer = "Not enough information"
+            else:
+                given_answer = qa['answers'][model_answer['answer']]
             confidence = model_answer['confidence']
-            with st.expander(f"{model} answer: {given_answer} (Confidence: {confidence*100}%)", expanded=False):
+            with st.expander(f"{model} answer: {given_answer} (Confidence: {int(confidence*100)}%)", expanded=False):
                 st.write(model_answer['explanation'])
-        # Make a 'Next' button to go to the next question
-    next = st.button('Next', key=f'next_{i}')   
-    if next:
-        st.session_state.answers_given.append(option)
-        # Update to remove the old question
-        st.rerun()
+        next = st.button('Next', key=f'next_{i}')   
+        if next:
+            # Update to remove the old question
+            st.session_state.question_index += 1
+            st.rerun()
+            pass
             
                 
 # Once all questions are answered, show the final score
-if len(st.session_state.answers_given) == len(questions_answers):
-    
+if st.session_state.question_index == question_count:
     correct_answers = 0
     for i, qa in enumerate(questions_answers):
         if st.session_state.answers_given[i] == qa['answers'][qa['correct_answer']]:
@@ -169,4 +161,5 @@ if len(st.session_state.answers_given) == len(questions_answers):
 
     # Display the plot
     st.pyplot(fig)
+    st.write("The bar chart above shows the accuracy of the user and the LLMs on the Social-IQ benchmark. Note that the question presented here are from real LLM Benchmarks that usually get crowdsourced questions and answers. They can sometimes be tricky or ambiguous.")
     st.page_link("Home.py", label="Go back to the main page", icon="🧪")
