@@ -12,7 +12,7 @@
         "context": "Austin met the client's needs and they praised him highly.",
         "context_2": "The client was satisfied with Austin's work and lauded him highly.",
         "context_3": "Austin fulfilled the client's needs, earning high praise from them.",
-        "question": "How would Others feel as a result?",
+        "question": "How would others feel as a result?",
         "answerA": "happy",
         "answerB": "incompetent",
         "answerC": "very good at work"
@@ -129,13 +129,13 @@
         "context": "Bailey took dog toys to the dog park so the dog could play.",
         "context_2": "At the park, Bailey brought toys for the dog to play with.",
         "context_3": "Bailey brought dog toys to the park so the dog could play with them.",
-        "question": "How would Others feel as a result?",
+        "question": "How would others feel as a result?",
         "answerA": "Sad",
         "answerB": "bored",
         "answerC": "Very happy"
     },
     {
-        "context": "Carson \"went hard or go home\" because you needed to being risky or just not try.",
+        "context": "Carson \"went hard or go home\" because you needed to be risky or just not try.",
         "context_2": "Carson chose to take risks rather than playing it safe with a \"go hard or go home\" attitude.",
         "context_3": "Carson adopted the \"go hard or go home\" approach, risking failure rather than not trying at all.",
         "question": "How would Carson feel afterwards?",
@@ -156,7 +156,7 @@
         "context": "After going around a corner too fast, Riley hit a pole with the golf cart.",
         "context_2": "Riley's golf cart collided with a pole after taking a corner too fast.",
         "context_3": "After turning a corner too sharply, Riley accidentally collided with a pole in the golf cart.",
-        "question": "What will Others want to do next?",
+        "question": "What will others want to do next?",
         "answerA": "would get out and check for any damage to the golf cart",
         "answerB": "safe",
         "answerC": "would have any damage done to the golf cart fixed"
