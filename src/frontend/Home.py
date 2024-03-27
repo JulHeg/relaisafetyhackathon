@@ -94,7 +94,7 @@ st.markdown(
 #     index=0)
 
 st.write("""
-[![Static Badge](https://img.shields.io/badge/VIEW%3A-GitHub_Repository-black?style=flat&logo=GitHub&logoColor=black&labelColor=white&link=https%3A%2F%2Fgithub.com%2FJulHeg%2Frelaisafetyhackathon)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2FJulHeg%2Frelaisafetyhackathon)
+[![Static Badge](https://img.shields.io/badge/VIEW%3A-GitHub_Repository-black?style=flat&logo=GitHub&logoColor=black&labelColor=white&link=https%3A%2F%2Fgithub.com%2FJulHeg%2Frelaisafetyhackathon)](https://github.com/JulHeg/relaisafetyhackathon)
 [![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2FJulHeg%2Frelaisafetyhackathon&label=Visitors%3A&labelColor=%23000000&countColor=%23ffffff&style=flat&labelStyle=upper)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2FJulHeg%2Frelaisafetyhackathon)
 """)
 
